@@ -16,18 +16,17 @@
 
 void InitUSART( unsigned char baudrate );
 void USART_Transmit( unsigned char data );
-unsigned char USART_Receive( void );
 void  initTimers10ms ();
-void ConfPort (uint8_t  RDireccion,uint8_t  RPuerto,unsigned char PDireccion, unsigned char Direccion , unsigned char PEstado, unsigned char Estado  );
+void initPort ();
 void DecodeHeader();
 void CksVerif();
+void CMD();
 //.........................................................................
 
 
 // .......................VARIABLE GLOBAL..................................
-char mubuffer= ' ';
 
-volatile  uint16_t timeOut10ms,TimeInterval; 
+volatile  uint16_t timeInitms,timeFinms,TimeInterval; 
  
 volatile uint8_t buffer[256];
 volatile uint8_t indexWrite,indexRead,indexWriteTX,indexReadTX;
@@ -47,14 +46,35 @@ unionValue proxBytes;
 
 //.........................................................................
 
-void InitUSART( unsigned char baudrate ) {                  //Configurando la USART en modo asincrona 
+void InitUSART( unsigned char baudrate ) {                 
 	
-	UBRR0 = baudrate;                                       //Seleccionando la velocidad
-	UCSR0C |= (3<<UCSZ00);                                  // Trasmitir datos de 8 bits   3 = 0b011
-	UCSR0B = (1<<RXEN0)|(1<<TXEN0);                         //Habilitando la transmisión y recepción
-	UCSR0B |= (1<<RXCIE0);                                  //Habilitando interrupcion por recepcion 
-}
+	/* Configuración del USART como UART */
 
+	// USART como UART
+	UCSR0C &=~ (1<<UMSEL00);
+	UCSR0C &=~ (1<<UMSEL01);
+
+	// Paridad desactivada
+	UCSR0C &=~ (1<<UPM00);
+	UCSR0C &=~ (1<<UPM01);
+
+	// Stops = 1
+	UCSR0C &=~ (1<<USBS0);
+
+	// Datos de 8 bits
+	UCSR0C |=  (1<<UCSZ00);
+	UCSR0C |=  (1<<UCSZ01);
+	UCSR0B &=~ (1<<UCSZ02);
+	
+	// Calculo del baudrate
+	UCSR0A &=~ (1<<U2X0);
+	UBRR0 = baudrate;
+
+	UCSR0B |= (1<<TXEN0); //activo recepcion de datos
+	UCSR0B |= (1<<RXEN0); //activo envio de datos
+
+	UCSR0B |= (1<<RXCIE0); //interrupcion de recepcion completada
+}
 
 void USART_Transmit( unsigned char data )
 {
@@ -63,27 +83,12 @@ void USART_Transmit( unsigned char data )
 	//indexRead++;                                               // Pone los datos en el buffer, envía los datos UDR0 buffer de datos
 }
 
-unsigned char USART_Receive( void )
-{
-	
-	while ( !(UCSR0A & (1<<RXC0)) );                            // Esperar a recibir datos
-	return UDR0;
-	                                                // Obtener y devolver los datos recibidos del buffer 
+void initPort () {
+   DDRB |= (1<< DDB5);                              // Configuro como salida el puerto DDB5   
+   PORTB &=~ (1 << PORTB5);                          // El puerto esta en 1
+    
+   DDRB |= (1<< DDB0); 
 }
-
-void ConfPort (uint8_t  RDireccion,uint8_t  RPuerto,unsigned char PDireccion, unsigned char Direccion ,unsigned char PEstado, unsigned char Estado  ) {
-   RDireccion |= (Direccion<< PDireccion);
-   RPuerto |= (Estado << PEstado);
-
-}
-/* ConfPort() es una funcion que permite configurar cualquier puerto del microcontrolador ATMega 328P 
-              RDireccion = es el registro donde se configurar
-			  PDireccion = es la direccion (bit) del Puerto a configurar 
-			  Direccion = Es una variable para configurar el puerto como entrada (1)  o salida (0) 
-	          RPuerto = Es el registro de estado del puerto 
-			  PEstado = Es bit del puerto a configurar
-			  Estado =  Si esta configurado como encendido (1) o apagado (0)
-*/     
 
 void  initTimers10ms () {
 	OCR1A =625 ;                                      // Valor de compracion
@@ -96,13 +101,17 @@ void DecodeHeader()
 {
 	uint8_t aux;
 	aux=indexWrite;
-	
+		
+		
 	while((indexRead!=aux)&&(status==1)) {
+		
 		switch(header) {
 			case 0://U
+			
+			
 			if(buffer[indexRead]=='U') {
 				cks='U';
-				USART_Transmit( buffer[indexRead] );
+				
 			}
 			else {
 				indexRead=indexWrite;
@@ -112,7 +121,6 @@ void DecodeHeader()
 			case 1://UN
 			if(buffer[indexRead]=='N') {
 				cks^='N';
-				USART_Transmit( buffer[indexRead]);
 			}
 			else {
 				indexRead--;
@@ -122,7 +130,6 @@ void DecodeHeader()
 			case 2://UNE
 			if(buffer[indexRead]=='E') {
 				cks^='E';
-	        USART_Transmit( buffer[indexRead]);
 			}
 			else {
 				indexRead--;
@@ -132,7 +139,7 @@ void DecodeHeader()
 			case 3://UNER
 			if(buffer[indexRead]=='R') {
 				cks^='R';
-			    USART_Transmit( buffer[indexRead]);
+				
 			}
 			else {
 				indexRead--;
@@ -141,40 +148,26 @@ void DecodeHeader()
 			break;
 
 			case 4:                                         //byte menos significativo
-			//if(buffer[indexRead]> 0x00) {
-	            //proxBytes.v[0]=buffer[indexRead];
+			   if(buffer[indexRead] > 0x00) {
+	            
 				nBytes=buffer[indexRead];
-				cks^=nBytes;
-				USART_Transmit( buffer[indexRead]);
+				  cks^=nBytes;
 				
-			//}
-			//else { 
-				//indexRead--;
-				//header=-1;
-			//}
+				
+			    }
+			    else { 
+				  indexRead--;
+				  header=-1;
+			    }
 			break;
 			
-			case 5 :                                           //byte mas significativo
-			//if(buffer[indexRead]==0x00) {
-				//proxBytes.v[1]=buffer[indexRead];
-				cks^=0X00;
-				USART_Transmit( buffer[indexRead]);
-				//PORTB|= (1<<PORTB7);
-				
-			//}
-			//else {
-				//USART_Transmit(indexRead);
-				//indexRead--;
-				//header=-1;
-				//PORTB|= (1<<PORTB7);
-			//}
-			break;
 
-			case 6: // ':'
+			case 5:            // ':'
 			if(buffer[indexRead]==':') {
 				cks^=buffer[indexRead];
-				status=2;//llego toda la cabecera
-				USART_Transmit( buffer[indexRead]);
+
+				status=2;  //llego toda la cabecera
+				 
 			}
 			else {
 				indexRead--;
@@ -189,17 +182,18 @@ void DecodeHeader()
 
 void CksVerif(){
 	static uint8_t p=1;
-	while((indexRead!=indexWrite)&&(p<nBytes)){       //proxBytes.value
+	while((indexRead!=indexWrite)&&(p<nBytes)){       
 		if(p==1)
 		cmdPos_inBuff=indexRead;
-		PORTB|= (1<<PORTB7);
+	
 		cks^=buffer[indexRead];
 		indexRead++;
 		p++;
 	}
-	if( (p==proxBytes.value)&&(indexRead!=indexWrite) ){
+	if( (p==nBytes)&&(indexRead!=indexWrite) ){
 		p=1;
 		if(cks==buffer[indexRead]){
+			PORTB |= ( 1 << PORTB0);
 			status=3;
 		}
 		else{
@@ -210,42 +204,36 @@ void CksVerif(){
 	}
 }
 
-
-void CMD(){                                                                   // Lectura de codigos
-	switch(buffer[cmdPos_inBuff]){
-		case '+':
-		status=1;
-		TimeInterval=buffer[cmdPos_inBuff+1];                          //incremento 
-		TimeInterval|=(uint16_t)buffer[cmdPos_inBuff+2]<<8;
-		timeOut10ms = timeOut10ms + TimeInterval;     
+void CMD()  {                                                                   // Lectura de codigos
+	switch(buffer[cmdPos_inBuff]) {
+	    case '+':
+			status=1;
+            timeFinms = (timeInitms + 5);     
 	      
 		break;
+		
 		case '-':
-		status=1;
-		TimeInterval=buffer[cmdPos_inBuff+1];                              // Decremento  tiempo
-		TimeInterval|=(uint16_t)buffer[cmdPos_inBuff+2]<<8;
-		timeOut10ms = timeOut10ms - TimeInterval;
+			status=1;
+			timeFinms = (timeInitms - 5);
 		break;
 	}
 }
 
 
-
 int main (void) {
 	                                     // 1 segundo apagado y 1 segundo prendido 
 	InitUSART(MYUBRR);   
+	initPort ();
+    initTimers10ms ();	
 	sei();
-    initTimers10ms ();
-    ConfPort (DDRB,PORTB,DDB5,1,PORTB5,1);
-	ConfPort (DDRB,PORTB,DDB7,1,PORTB7,0);
-      timeOut10ms=100;
+     timeInitms= 5;                    // tiempo inicio en 50 ms  (5*10)= 50 ms 
 	 indexWrite=0;
 	 indexRead=0;
 	 header=0;
 	 status=1;
 	 timeOutRX=10;
 	 sendData=0;
-	
+	 timeFinms= 25;
 	
 	while(1){
 		
@@ -253,7 +241,7 @@ int main (void) {
 	      switch(status) {
 		    case 1:
 		         DecodeHeader();
-		      
+		         
 			  break;
 		    
 			case 2:
@@ -280,9 +268,9 @@ ISR(USART_RX_vect){
 	
 
 ISR (TIMER1_COMPA_vect) {
-	   timeOut10ms--;
-	if (timeOut10ms == 0) {
-		timeOut10ms=100;
+	   timeFinms--;
+	if (timeFinms == 0) {
+		timeFinms=25;
 		if (PORTB & ( 1 << PORTB5)){ // desplazo al numero 1 cinco veces para que aparezca en la posicion 5
 		    PORTB &= ~ ( 1 << PORTB5); // ~ (1 << PORTB5) = 11011111 hago cero el bit 5 de PORTB5
 	      }
