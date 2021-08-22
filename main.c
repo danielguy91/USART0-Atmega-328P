@@ -29,10 +29,9 @@ void CMD();
 volatile  uint16_t timeInitms,timeFinms,TimeInterval; 
  
 volatile uint8_t buffer[256];
-volatile uint8_t indexWrite,indexRead,indexWriteTX,indexReadTX;
+volatile uint8_t indexWrite,indexRead;
 volatile uint8_t status,cks,cksTX,cmdPos_inBuff;
 volatile int8_t header,nBytes;
-volatile uint8_t timeOutRX;
 volatile uint8_t sendData;
 
   
@@ -43,6 +42,27 @@ typedef union {
 
 unionValue proxBytes;
 
+//typedef
+typedef union{
+	struct{
+		uint8_t b0: 1;
+		uint8_t b1: 1;
+		uint8_t b2: 1;
+		uint8_t b3: 1;
+		uint8_t b4: 1;
+		uint8_t b5: 1;
+		uint8_t b6: 1;
+		uint8_t b7: 1;
+	}bit;
+	uint8_t byte;
+}_sFlag;
+//..
+
+
+
+// Defines
+#define INCREMENTAR flag1.bit.b0 //
+volatile _sFlag flag1;
 
 //.........................................................................
 
@@ -99,11 +119,8 @@ void  initTimers10ms () {
 
 void DecodeHeader()
 {
-	uint8_t aux;
-	aux=indexWrite;
 		
-		
-	while((indexRead!=aux)&&(status==1)) {
+	while((indexRead!=indexWrite)&&(status==1)) {
 		
 		switch(header) {
 			case 0://U
@@ -165,8 +182,8 @@ void DecodeHeader()
 			case 5:            // ':'
 			if(buffer[indexRead]==':') {
 				cks^=buffer[indexRead];
-
-				status=2;  //llego toda la cabecera
+                // PORTB ^= (1<< PORTB0);
+				
 				 
 			}
 			else {
@@ -174,6 +191,16 @@ void DecodeHeader()
 				header=-1;
 			}
 			break;
+			
+			case 6:            // ':'
+					cmdPos_inBuff=indexRead;
+					cks^=buffer[indexRead];
+			 break;
+			 case 7:         
+			        if(cks==buffer[indexRead]){
+				        status=3;
+			 }
+			 break;
 		}
 		header++;
 		indexRead++;
@@ -183,17 +210,16 @@ void DecodeHeader()
 void CksVerif(){
 	static uint8_t p=1;
 	while((indexRead!=indexWrite)&&(p<nBytes)){       
-		if(p==1)
+		if(p==1){
 		cmdPos_inBuff=indexRead;
-	
-		cks^=buffer[indexRead];
+	    cks^=buffer[indexRead];
 		indexRead++;
 		p++;
+		}
 	}
-	if( (p==nBytes)&&(indexRead!=indexWrite) ){
+	if( (p==nBytes)&&(indexRead==indexWrite) ){
 		p=1;
 		if(cks==buffer[indexRead]){
-			PORTB |= ( 1 << PORTB0);
 			status=3;
 		}
 		else{
@@ -201,20 +227,22 @@ void CksVerif(){
 			indexRead=indexWrite;
 		}
 		header=0;
+		
 	}
 }
 
 void CMD()  {                                                                   // Lectura de codigos
+	header=0;
 	switch(buffer[cmdPos_inBuff]) {
 	    case '+':
-			status=1;
-            timeFinms = (timeInitms + 5);     
-	      
+		
+            INCREMENTAR=1;     
+		   
 		break;
 		
 		case '-':
-			status=1;
-			timeFinms = (timeInitms - 5);
+			timeInitms = timeInitms-5;
+			timeFinms=timeInitms;
 		break;
 	}
 }
@@ -225,15 +253,14 @@ int main (void) {
 	InitUSART(MYUBRR);   
 	initPort ();
     initTimers10ms ();	
-	sei();
-     timeInitms= 5;                    // tiempo inicio en 50 ms  (5*10)= 50 ms 
+	 sei();
+     timeInitms= 0;                    // tiempo inicio en 50 ms  (5*10)= 50 ms 
 	 indexWrite=0;
 	 indexRead=0;
 	 header=0;
 	 status=1;
-	 timeOutRX=10;
+	 timeFinms=50;
 	 sendData=0;
-	 timeFinms= 25;
 	
 	while(1){
 		
@@ -251,13 +278,31 @@ int main (void) {
 		    
 			case 3:
 			     
-		         indexRead++;
 		         CMD();
-		         status=1;
+		          status=1;
 		     break;
 	                       }
 
 	                            }
+		if (INCREMENTAR==1)
+		{
+			timeInitms +=10;
+			PORTB ^= (1<< PORTB0);
+			INCREMENTAR = 0;
+			}
+		
+								
+		if (!timeFinms){
+			timeFinms = timeInitms;
+			PORTB ^= (1<< PORTB5);
+			}
+			////(1 << PORTB5 1) desplazado por B5 es igual a 00100000
+			//if(PORTB & (1 << PORTB5)) {//desplazo al numero 1 cinco veces para que aparezca en la posicion 5
+			//PORTB &= ~(1 << PORTB5);} //~ (1 << PORTB5) = 11011111 hago cero el bit 5 de PORTB5
+			//else{
+			//PORTB |= (1 << PORTB5);}
+			//
+		//}
              }
 }
 
@@ -268,17 +313,9 @@ ISR(USART_RX_vect){
 	
 
 ISR (TIMER1_COMPA_vect) {
-	   timeFinms--;
-	if (timeFinms == 0) {
-		timeFinms=25;
-		if (PORTB & ( 1 << PORTB5)){ // desplazo al numero 1 cinco veces para que aparezca en la posicion 5
-		    PORTB &= ~ ( 1 << PORTB5); // ~ (1 << PORTB5) = 11011111 hago cero el bit 5 de PORTB5
-	      }
-		else {
-		   PORTB |= ( 1 << PORTB5);
-		  }
 
-		  
-	}
-	
+	  if (timeFinms > 0)
+	  {
+		timeFinms--;	
+	  }
 }

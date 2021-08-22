@@ -3,397 +3,395 @@ USART0.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000002  00800100  000004d8  0000056c  2**0
+  0 .data         00000002  00800100  0000053c  000005d0  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         000004d8  00000000  00000000  00000094  2**1
+  1 .text         0000053c  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          00000114  00800102  00800102  0000056e  2**0
+  2 .bss          00000112  00800102  00800102  000005d2  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  0000056e  2**0
+  3 .comment      00000030  00000000  00000000  000005d2  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000005a0  2**2
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000604  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000068  00000000  00000000  000005e0  2**0
+  5 .debug_aranges 00000068  00000000  00000000  00000644  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   0000097c  00000000  00000000  00000648  2**0
+  6 .debug_info   000009fe  00000000  00000000  000006ac  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000723  00000000  00000000  00000fc4  2**0
+  7 .debug_abbrev 00000745  00000000  00000000  000010aa  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000516  00000000  00000000  000016e7  2**0
+  8 .debug_line   00000523  00000000  00000000  000017ef  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000000e4  00000000  00000000  00001c00  2**2
+  9 .debug_frame  000000e4  00000000  00000000  00001d14  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000485  00000000  00000000  00001ce4  2**0
+ 10 .debug_str    00000474  00000000  00000000  00001df8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000000c0  00000000  00000000  00002169  2**0
+ 11 .debug_loc    000000c0  00000000  00000000  0000226c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000058  00000000  00000000  00002229  2**0
+ 12 .debug_ranges 00000058  00000000  00000000  0000232c  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
 
 00000000 <__vectors>:
-   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
-   4:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
-   8:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
-   c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
-  10:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
-  14:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
-  18:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
-  1c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
-  20:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
-  24:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
-  28:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
-  2c:	0c 94 3e 02 	jmp	0x47c	; 0x47c <__vector_11>
-  30:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
-  34:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
-  38:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
-  3c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
-  40:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
-  44:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
-  48:	0c 94 21 02 	jmp	0x442	; 0x442 <__vector_18>
-  4c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
-  50:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
-  54:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
-  58:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
-  5c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
-  60:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
-  64:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   0:	0c 94 3c 00 	jmp	0x78	; 0x78 <__ctors_end>
+   4:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+   8:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+   c:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  10:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  14:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  18:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  1c:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  20:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  24:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  28:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  2c:	0c 94 79 02 	jmp	0x4f2	; 0x4f2 <__vector_11>
+  30:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  34:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  38:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  3c:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  40:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  44:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  48:	0c 94 5c 02 	jmp	0x4b8	; 0x4b8 <__vector_18>
+  4c:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  50:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  54:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  58:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  5c:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  60:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  64:	0c 94 59 00 	jmp	0xb2	; 0xb2 <__bad_interrupt>
+  68:	b7 00       	.word	0x00b7	; ????
+  6a:	ca 00       	.word	0x00ca	; ????
+  6c:	e1 00       	.word	0x00e1	; ????
+  6e:	f8 00       	.word	0x00f8	; ????
+  70:	0f 01       	movw	r0, r30
+  72:	30 01       	movw	r6, r0
+  74:	4d 01       	movw	r8, r26
+  76:	5d 01       	movw	r10, r26
 
-00000068 <__ctors_end>:
-  68:	11 24       	eor	r1, r1
-  6a:	1f be       	out	0x3f, r1	; 63
-  6c:	cf ef       	ldi	r28, 0xFF	; 255
-  6e:	d8 e0       	ldi	r29, 0x08	; 8
-  70:	de bf       	out	0x3e, r29	; 62
-  72:	cd bf       	out	0x3d, r28	; 61
+00000078 <__ctors_end>:
+  78:	11 24       	eor	r1, r1
+  7a:	1f be       	out	0x3f, r1	; 63
+  7c:	cf ef       	ldi	r28, 0xFF	; 255
+  7e:	d8 e0       	ldi	r29, 0x08	; 8
+  80:	de bf       	out	0x3e, r29	; 62
+  82:	cd bf       	out	0x3d, r28	; 61
 
-00000074 <__do_copy_data>:
-  74:	11 e0       	ldi	r17, 0x01	; 1
-  76:	a0 e0       	ldi	r26, 0x00	; 0
-  78:	b1 e0       	ldi	r27, 0x01	; 1
-  7a:	e8 ed       	ldi	r30, 0xD8	; 216
-  7c:	f4 e0       	ldi	r31, 0x04	; 4
-  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
-  80:	05 90       	lpm	r0, Z+
-  82:	0d 92       	st	X+, r0
-  84:	a2 30       	cpi	r26, 0x02	; 2
-  86:	b1 07       	cpc	r27, r17
-  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+00000084 <__do_copy_data>:
+  84:	11 e0       	ldi	r17, 0x01	; 1
+  86:	a0 e0       	ldi	r26, 0x00	; 0
+  88:	b1 e0       	ldi	r27, 0x01	; 1
+  8a:	ec e3       	ldi	r30, 0x3C	; 60
+  8c:	f5 e0       	ldi	r31, 0x05	; 5
+  8e:	02 c0       	rjmp	.+4      	; 0x94 <__do_copy_data+0x10>
+  90:	05 90       	lpm	r0, Z+
+  92:	0d 92       	st	X+, r0
+  94:	a2 30       	cpi	r26, 0x02	; 2
+  96:	b1 07       	cpc	r27, r17
+  98:	d9 f7       	brne	.-10     	; 0x90 <__do_copy_data+0xc>
 
-0000008a <__do_clear_bss>:
-  8a:	22 e0       	ldi	r18, 0x02	; 2
-  8c:	a2 e0       	ldi	r26, 0x02	; 2
-  8e:	b1 e0       	ldi	r27, 0x01	; 1
-  90:	01 c0       	rjmp	.+2      	; 0x94 <.do_clear_bss_start>
+0000009a <__do_clear_bss>:
+  9a:	22 e0       	ldi	r18, 0x02	; 2
+  9c:	a2 e0       	ldi	r26, 0x02	; 2
+  9e:	b1 e0       	ldi	r27, 0x01	; 1
+  a0:	01 c0       	rjmp	.+2      	; 0xa4 <.do_clear_bss_start>
 
-00000092 <.do_clear_bss_loop>:
-  92:	1d 92       	st	X+, r1
+000000a2 <.do_clear_bss_loop>:
+  a2:	1d 92       	st	X+, r1
 
-00000094 <.do_clear_bss_start>:
-  94:	a6 31       	cpi	r26, 0x16	; 22
-  96:	b2 07       	cpc	r27, r18
-  98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
-  9a:	0e 94 e0 01 	call	0x3c0	; 0x3c0 <main>
-  9e:	0c 94 6a 02 	jmp	0x4d4	; 0x4d4 <_exit>
+000000a4 <.do_clear_bss_start>:
+  a4:	a4 31       	cpi	r26, 0x14	; 20
+  a6:	b2 07       	cpc	r27, r18
+  a8:	e1 f7       	brne	.-8      	; 0xa2 <.do_clear_bss_loop>
+  aa:	0e 94 fd 01 	call	0x3fa	; 0x3fa <main>
+  ae:	0c 94 9c 02 	jmp	0x538	; 0x538 <_exit>
 
-000000a2 <__bad_interrupt>:
-  a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+000000b2 <__bad_interrupt>:
+  b2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
-000000a6 <InitUSART>:
+000000b6 <InitUSART>:
 }
 
 void USART_Transmit( unsigned char data )
 {
 	while ( !( UCSR0A & (1<<UDRE0)) );                          // Esperar a que el búfer de transmisión esté vacío  UDRE0 cuando tenga el valor de 1 esta listo para ser usado 
     UDR0 = data; 
-  a6:	e2 ec       	ldi	r30, 0xC2	; 194
-  a8:	f0 e0       	ldi	r31, 0x00	; 0
-  aa:	90 81       	ld	r25, Z
-  ac:	9f 7b       	andi	r25, 0xBF	; 191
-  ae:	90 83       	st	Z, r25
-  b0:	90 81       	ld	r25, Z
-  b2:	9f 77       	andi	r25, 0x7F	; 127
-  b4:	90 83       	st	Z, r25
-  b6:	90 81       	ld	r25, Z
-  b8:	9f 7e       	andi	r25, 0xEF	; 239
-  ba:	90 83       	st	Z, r25
-  bc:	90 81       	ld	r25, Z
-  be:	9f 7d       	andi	r25, 0xDF	; 223
-  c0:	90 83       	st	Z, r25
-  c2:	90 81       	ld	r25, Z
-  c4:	97 7f       	andi	r25, 0xF7	; 247
-  c6:	90 83       	st	Z, r25
-  c8:	90 81       	ld	r25, Z
-  ca:	92 60       	ori	r25, 0x02	; 2
-  cc:	90 83       	st	Z, r25
-  ce:	90 81       	ld	r25, Z
-  d0:	94 60       	ori	r25, 0x04	; 4
-  d2:	90 83       	st	Z, r25
-  d4:	e1 ec       	ldi	r30, 0xC1	; 193
-  d6:	f0 e0       	ldi	r31, 0x00	; 0
+  b6:	e2 ec       	ldi	r30, 0xC2	; 194
+  b8:	f0 e0       	ldi	r31, 0x00	; 0
+  ba:	90 81       	ld	r25, Z
+  bc:	9f 7b       	andi	r25, 0xBF	; 191
+  be:	90 83       	st	Z, r25
+  c0:	90 81       	ld	r25, Z
+  c2:	9f 77       	andi	r25, 0x7F	; 127
+  c4:	90 83       	st	Z, r25
+  c6:	90 81       	ld	r25, Z
+  c8:	9f 7e       	andi	r25, 0xEF	; 239
+  ca:	90 83       	st	Z, r25
+  cc:	90 81       	ld	r25, Z
+  ce:	9f 7d       	andi	r25, 0xDF	; 223
+  d0:	90 83       	st	Z, r25
+  d2:	90 81       	ld	r25, Z
+  d4:	97 7f       	andi	r25, 0xF7	; 247
+  d6:	90 83       	st	Z, r25
   d8:	90 81       	ld	r25, Z
-  da:	9b 7f       	andi	r25, 0xFB	; 251
+  da:	92 60       	ori	r25, 0x02	; 2
   dc:	90 83       	st	Z, r25
-  de:	a0 ec       	ldi	r26, 0xC0	; 192
-  e0:	b0 e0       	ldi	r27, 0x00	; 0
-  e2:	9c 91       	ld	r25, X
-  e4:	9d 7f       	andi	r25, 0xFD	; 253
-  e6:	9c 93       	st	X, r25
-  e8:	90 e0       	ldi	r25, 0x00	; 0
-  ea:	90 93 c5 00 	sts	0x00C5, r25	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7f80c5>
-  ee:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7f80c4>
-  f2:	80 81       	ld	r24, Z
-  f4:	88 60       	ori	r24, 0x08	; 8
-  f6:	80 83       	st	Z, r24
-  f8:	80 81       	ld	r24, Z
-  fa:	80 61       	ori	r24, 0x10	; 16
-  fc:	80 83       	st	Z, r24
-  fe:	80 81       	ld	r24, Z
- 100:	80 68       	ori	r24, 0x80	; 128
- 102:	80 83       	st	Z, r24
- 104:	08 95       	ret
+  de:	90 81       	ld	r25, Z
+  e0:	94 60       	ori	r25, 0x04	; 4
+  e2:	90 83       	st	Z, r25
+  e4:	e1 ec       	ldi	r30, 0xC1	; 193
+  e6:	f0 e0       	ldi	r31, 0x00	; 0
+  e8:	90 81       	ld	r25, Z
+  ea:	9b 7f       	andi	r25, 0xFB	; 251
+  ec:	90 83       	st	Z, r25
+  ee:	a0 ec       	ldi	r26, 0xC0	; 192
+  f0:	b0 e0       	ldi	r27, 0x00	; 0
+  f2:	9c 91       	ld	r25, X
+  f4:	9d 7f       	andi	r25, 0xFD	; 253
+  f6:	9c 93       	st	X, r25
+  f8:	90 e0       	ldi	r25, 0x00	; 0
+  fa:	90 93 c5 00 	sts	0x00C5, r25	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7f80c5>
+  fe:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7f80c4>
+ 102:	80 81       	ld	r24, Z
+ 104:	88 60       	ori	r24, 0x08	; 8
+ 106:	80 83       	st	Z, r24
+ 108:	80 81       	ld	r24, Z
+ 10a:	80 61       	ori	r24, 0x10	; 16
+ 10c:	80 83       	st	Z, r24
+ 10e:	80 81       	ld	r24, Z
+ 110:	80 68       	ori	r24, 0x80	; 128
+ 112:	80 83       	st	Z, r24
+ 114:	08 95       	ret
 
-00000106 <initPort>:
+00000116 <initPort>:
 	//indexRead++;                                               // Pone los datos en el buffer, envía los datos UDR0 buffer de datos
 }
 
 void initPort () {
    DDRB |= (1<< DDB5);                              // Configuro como salida el puerto DDB5   
- 106:	84 b1       	in	r24, 0x04	; 4
- 108:	80 62       	ori	r24, 0x20	; 32
- 10a:	84 b9       	out	0x04, r24	; 4
+ 116:	84 b1       	in	r24, 0x04	; 4
+ 118:	80 62       	ori	r24, 0x20	; 32
+ 11a:	84 b9       	out	0x04, r24	; 4
    PORTB &=~ (1 << PORTB5);                          // El puerto esta en 1
- 10c:	85 b1       	in	r24, 0x05	; 5
- 10e:	8f 7d       	andi	r24, 0xDF	; 223
- 110:	85 b9       	out	0x05, r24	; 5
+ 11c:	85 b1       	in	r24, 0x05	; 5
+ 11e:	8f 7d       	andi	r24, 0xDF	; 223
+ 120:	85 b9       	out	0x05, r24	; 5
     
    DDRB |= (1<< DDB0); 
- 112:	84 b1       	in	r24, 0x04	; 4
- 114:	81 60       	ori	r24, 0x01	; 1
- 116:	84 b9       	out	0x04, r24	; 4
- 118:	08 95       	ret
+ 122:	84 b1       	in	r24, 0x04	; 4
+ 124:	81 60       	ori	r24, 0x01	; 1
+ 126:	84 b9       	out	0x04, r24	; 4
+ 128:	08 95       	ret
 
-0000011a <initTimers10ms>:
+0000012a <initTimers10ms>:
 }
 
 void  initTimers10ms () {
 	OCR1A =625 ;                                      // Valor de compracion
- 11a:	81 e7       	ldi	r24, 0x71	; 113
- 11c:	92 e0       	ldi	r25, 0x02	; 2
- 11e:	90 93 89 00 	sts	0x0089, r25	; 0x800089 <__TEXT_REGION_LENGTH__+0x7f8089>
- 122:	80 93 88 00 	sts	0x0088, r24	; 0x800088 <__TEXT_REGION_LENGTH__+0x7f8088>
+ 12a:	81 e7       	ldi	r24, 0x71	; 113
+ 12c:	92 e0       	ldi	r25, 0x02	; 2
+ 12e:	90 93 89 00 	sts	0x0089, r25	; 0x800089 <__TEXT_REGION_LENGTH__+0x7f8089>
+ 132:	80 93 88 00 	sts	0x0088, r24	; 0x800088 <__TEXT_REGION_LENGTH__+0x7f8088>
 	TCNT1 = 0x00 ;                                    // temporizador inicializo
- 126:	10 92 85 00 	sts	0x0085, r1	; 0x800085 <__TEXT_REGION_LENGTH__+0x7f8085>
- 12a:	10 92 84 00 	sts	0x0084, r1	; 0x800084 <__TEXT_REGION_LENGTH__+0x7f8084>
+ 136:	10 92 85 00 	sts	0x0085, r1	; 0x800085 <__TEXT_REGION_LENGTH__+0x7f8085>
+ 13a:	10 92 84 00 	sts	0x0084, r1	; 0x800084 <__TEXT_REGION_LENGTH__+0x7f8084>
 	TIMSK1 = ( 1 << OCIE1A);                          // interrupción de compracion en modo CTC OCR1A = TCNT1
- 12e:	82 e0       	ldi	r24, 0x02	; 2
- 130:	80 93 6f 00 	sts	0x006F, r24	; 0x80006f <__TEXT_REGION_LENGTH__+0x7f806f>
+ 13e:	82 e0       	ldi	r24, 0x02	; 2
+ 140:	80 93 6f 00 	sts	0x006F, r24	; 0x80006f <__TEXT_REGION_LENGTH__+0x7f806f>
 	TCCR1B = ( 1 << WGM12) | ( 1 << CS12) ;           // PRESCALAR EN 256 y MODO CTC
- 134:	8c e0       	ldi	r24, 0x0C	; 12
- 136:	80 93 81 00 	sts	0x0081, r24	; 0x800081 <__TEXT_REGION_LENGTH__+0x7f8081>
- 13a:	08 95       	ret
+ 144:	8c e0       	ldi	r24, 0x0C	; 12
+ 146:	80 93 81 00 	sts	0x0081, r24	; 0x800081 <__TEXT_REGION_LENGTH__+0x7f8081>
+ 14a:	08 95       	ret
 
-0000013c <DecodeHeader>:
+0000014c <DecodeHeader>:
 }
 
 void DecodeHeader()
 {
-	uint8_t aux;
-	aux=indexWrite;
- 13c:	90 91 0f 02 	lds	r25, 0x020F	; 0x80020f <indexWrite>
 		
-		
-	while((indexRead!=aux)&&(status==1)) {
- 140:	b5 c0       	rjmp	.+362    	; 0x2ac <DecodeHeader+0x170>
+	while((indexRead!=indexWrite)&&(status==1)) {
+ 14c:	cd c0       	rjmp	.+410    	; 0x2e8 <DecodeHeader+0x19c>
 		
 		switch(header) {
- 142:	80 91 11 02 	lds	r24, 0x0211	; 0x800211 <header>
- 146:	82 30       	cpi	r24, 0x02	; 2
- 148:	c9 f1       	breq	.+114    	; 0x1bc <DecodeHeader+0x80>
- 14a:	2c f4       	brge	.+10     	; 0x156 <DecodeHeader+0x1a>
- 14c:	88 23       	and	r24, r24
- 14e:	61 f0       	breq	.+24     	; 0x168 <DecodeHeader+0x2c>
- 150:	81 30       	cpi	r24, 0x01	; 1
- 152:	e9 f0       	breq	.+58     	; 0x18e <DecodeHeader+0x52>
- 154:	a1 c0       	rjmp	.+322    	; 0x298 <DecodeHeader+0x15c>
- 156:	84 30       	cpi	r24, 0x04	; 4
- 158:	09 f4       	brne	.+2      	; 0x15c <DecodeHeader+0x20>
- 15a:	5e c0       	rjmp	.+188    	; 0x218 <DecodeHeader+0xdc>
- 15c:	0c f4       	brge	.+2      	; 0x160 <DecodeHeader+0x24>
- 15e:	45 c0       	rjmp	.+138    	; 0x1ea <DecodeHeader+0xae>
- 160:	85 30       	cpi	r24, 0x05	; 5
- 162:	09 f4       	brne	.+2      	; 0x166 <DecodeHeader+0x2a>
- 164:	7a c0       	rjmp	.+244    	; 0x25a <DecodeHeader+0x11e>
- 166:	98 c0       	rjmp	.+304    	; 0x298 <DecodeHeader+0x15c>
+ 14e:	e0 91 0f 02 	lds	r30, 0x020F	; 0x80020f <header>
+ 152:	8e 2f       	mov	r24, r30
+ 154:	ee 0f       	add	r30, r30
+ 156:	99 0b       	sbc	r25, r25
+ 158:	aa 0b       	sbc	r26, r26
+ 15a:	bb 0b       	sbc	r27, r27
+ 15c:	88 30       	cpi	r24, 0x08	; 8
+ 15e:	91 05       	cpc	r25, r1
+ 160:	08 f0       	brcs	.+2      	; 0x164 <DecodeHeader+0x18>
+ 162:	b8 c0       	rjmp	.+368    	; 0x2d4 <DecodeHeader+0x188>
+ 164:	fc 01       	movw	r30, r24
+ 166:	ec 5c       	subi	r30, 0xCC	; 204
+ 168:	ff 4f       	sbci	r31, 0xFF	; 255
+ 16a:	0c 94 96 02 	jmp	0x52c	; 0x52c <__tablejump2__>
 			case 0://U
 			
 			
 			if(buffer[indexRead]=='U') {
- 168:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <indexRead>
- 16c:	f0 e0       	ldi	r31, 0x00	; 0
- 16e:	e7 5f       	subi	r30, 0xF7	; 247
- 170:	fe 4f       	sbci	r31, 0xFE	; 254
- 172:	80 81       	ld	r24, Z
- 174:	85 35       	cpi	r24, 0x55	; 85
- 176:	19 f4       	brne	.+6      	; 0x17e <DecodeHeader+0x42>
+ 16e:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <indexRead>
+ 172:	f0 e0       	ldi	r31, 0x00	; 0
+ 174:	e7 5f       	subi	r30, 0xF7	; 247
+ 176:	fe 4f       	sbci	r31, 0xFE	; 254
+ 178:	80 81       	ld	r24, Z
+ 17a:	85 35       	cpi	r24, 0x55	; 85
+ 17c:	19 f4       	brne	.+6      	; 0x184 <DecodeHeader+0x38>
 				cks='U';
- 178:	80 93 14 02 	sts	0x0214, r24	; 0x800214 <cks>
- 17c:	8d c0       	rjmp	.+282    	; 0x298 <DecodeHeader+0x15c>
+ 17e:	80 93 12 02 	sts	0x0212, r24	; 0x800212 <cks>
+ 182:	a8 c0       	rjmp	.+336    	; 0x2d4 <DecodeHeader+0x188>
 				
 			}
 			else {
 				indexRead=indexWrite;
- 17e:	80 91 0f 02 	lds	r24, 0x020F	; 0x80020f <indexWrite>
- 182:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <indexRead>
+ 184:	80 91 0d 02 	lds	r24, 0x020D	; 0x80020d <indexWrite>
+ 188:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <indexRead>
 				header=-1;
- 186:	8f ef       	ldi	r24, 0xFF	; 255
- 188:	80 93 11 02 	sts	0x0211, r24	; 0x800211 <header>
- 18c:	85 c0       	rjmp	.+266    	; 0x298 <DecodeHeader+0x15c>
+ 18c:	8f ef       	ldi	r24, 0xFF	; 255
+ 18e:	80 93 0f 02 	sts	0x020F, r24	; 0x80020f <header>
+ 192:	a0 c0       	rjmp	.+320    	; 0x2d4 <DecodeHeader+0x188>
 			}
 			break;
 			case 1://UN
 			if(buffer[indexRead]=='N') {
- 18e:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <indexRead>
- 192:	f0 e0       	ldi	r31, 0x00	; 0
- 194:	e7 5f       	subi	r30, 0xF7	; 247
- 196:	fe 4f       	sbci	r31, 0xFE	; 254
- 198:	80 81       	ld	r24, Z
- 19a:	8e 34       	cpi	r24, 0x4E	; 78
- 19c:	31 f4       	brne	.+12     	; 0x1aa <DecodeHeader+0x6e>
+ 194:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <indexRead>
+ 198:	f0 e0       	ldi	r31, 0x00	; 0
+ 19a:	e7 5f       	subi	r30, 0xF7	; 247
+ 19c:	fe 4f       	sbci	r31, 0xFE	; 254
+ 19e:	80 81       	ld	r24, Z
+ 1a0:	8e 34       	cpi	r24, 0x4E	; 78
+ 1a2:	31 f4       	brne	.+12     	; 0x1b0 <DecodeHeader+0x64>
 				cks^='N';
- 19e:	20 91 14 02 	lds	r18, 0x0214	; 0x800214 <cks>
- 1a2:	82 27       	eor	r24, r18
- 1a4:	80 93 14 02 	sts	0x0214, r24	; 0x800214 <cks>
- 1a8:	77 c0       	rjmp	.+238    	; 0x298 <DecodeHeader+0x15c>
+ 1a4:	90 91 12 02 	lds	r25, 0x0212	; 0x800212 <cks>
+ 1a8:	89 27       	eor	r24, r25
+ 1aa:	80 93 12 02 	sts	0x0212, r24	; 0x800212 <cks>
+ 1ae:	92 c0       	rjmp	.+292    	; 0x2d4 <DecodeHeader+0x188>
 			}
 			else {
 				indexRead--;
- 1aa:	80 91 04 01 	lds	r24, 0x0104	; 0x800104 <indexRead>
- 1ae:	81 50       	subi	r24, 0x01	; 1
- 1b0:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <indexRead>
+ 1b0:	80 91 04 01 	lds	r24, 0x0104	; 0x800104 <indexRead>
+ 1b4:	81 50       	subi	r24, 0x01	; 1
+ 1b6:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <indexRead>
 				header=-1;
- 1b4:	8f ef       	ldi	r24, 0xFF	; 255
- 1b6:	80 93 11 02 	sts	0x0211, r24	; 0x800211 <header>
- 1ba:	6e c0       	rjmp	.+220    	; 0x298 <DecodeHeader+0x15c>
+ 1ba:	8f ef       	ldi	r24, 0xFF	; 255
+ 1bc:	80 93 0f 02 	sts	0x020F, r24	; 0x80020f <header>
+ 1c0:	89 c0       	rjmp	.+274    	; 0x2d4 <DecodeHeader+0x188>
 			}
 			break;
 			case 2://UNE
 			if(buffer[indexRead]=='E') {
- 1bc:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <indexRead>
- 1c0:	f0 e0       	ldi	r31, 0x00	; 0
- 1c2:	e7 5f       	subi	r30, 0xF7	; 247
- 1c4:	fe 4f       	sbci	r31, 0xFE	; 254
- 1c6:	80 81       	ld	r24, Z
- 1c8:	85 34       	cpi	r24, 0x45	; 69
- 1ca:	31 f4       	brne	.+12     	; 0x1d8 <DecodeHeader+0x9c>
+ 1c2:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <indexRead>
+ 1c6:	f0 e0       	ldi	r31, 0x00	; 0
+ 1c8:	e7 5f       	subi	r30, 0xF7	; 247
+ 1ca:	fe 4f       	sbci	r31, 0xFE	; 254
+ 1cc:	80 81       	ld	r24, Z
+ 1ce:	85 34       	cpi	r24, 0x45	; 69
+ 1d0:	31 f4       	brne	.+12     	; 0x1de <DecodeHeader+0x92>
 				cks^='E';
- 1cc:	20 91 14 02 	lds	r18, 0x0214	; 0x800214 <cks>
- 1d0:	82 27       	eor	r24, r18
- 1d2:	80 93 14 02 	sts	0x0214, r24	; 0x800214 <cks>
- 1d6:	60 c0       	rjmp	.+192    	; 0x298 <DecodeHeader+0x15c>
+ 1d2:	90 91 12 02 	lds	r25, 0x0212	; 0x800212 <cks>
+ 1d6:	89 27       	eor	r24, r25
+ 1d8:	80 93 12 02 	sts	0x0212, r24	; 0x800212 <cks>
+ 1dc:	7b c0       	rjmp	.+246    	; 0x2d4 <DecodeHeader+0x188>
 			}
 			else {
 				indexRead--;
- 1d8:	80 91 04 01 	lds	r24, 0x0104	; 0x800104 <indexRead>
- 1dc:	81 50       	subi	r24, 0x01	; 1
- 1de:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <indexRead>
+ 1de:	80 91 04 01 	lds	r24, 0x0104	; 0x800104 <indexRead>
+ 1e2:	81 50       	subi	r24, 0x01	; 1
+ 1e4:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <indexRead>
 				header=-1;
- 1e2:	8f ef       	ldi	r24, 0xFF	; 255
- 1e4:	80 93 11 02 	sts	0x0211, r24	; 0x800211 <header>
- 1e8:	57 c0       	rjmp	.+174    	; 0x298 <DecodeHeader+0x15c>
+ 1e8:	8f ef       	ldi	r24, 0xFF	; 255
+ 1ea:	80 93 0f 02 	sts	0x020F, r24	; 0x80020f <header>
+ 1ee:	72 c0       	rjmp	.+228    	; 0x2d4 <DecodeHeader+0x188>
 			}
 			break;
 			case 3://UNER
 			if(buffer[indexRead]=='R') {
- 1ea:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <indexRead>
- 1ee:	f0 e0       	ldi	r31, 0x00	; 0
- 1f0:	e7 5f       	subi	r30, 0xF7	; 247
- 1f2:	fe 4f       	sbci	r31, 0xFE	; 254
- 1f4:	80 81       	ld	r24, Z
- 1f6:	82 35       	cpi	r24, 0x52	; 82
- 1f8:	31 f4       	brne	.+12     	; 0x206 <DecodeHeader+0xca>
+ 1f0:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <indexRead>
+ 1f4:	f0 e0       	ldi	r31, 0x00	; 0
+ 1f6:	e7 5f       	subi	r30, 0xF7	; 247
+ 1f8:	fe 4f       	sbci	r31, 0xFE	; 254
+ 1fa:	80 81       	ld	r24, Z
+ 1fc:	82 35       	cpi	r24, 0x52	; 82
+ 1fe:	31 f4       	brne	.+12     	; 0x20c <DecodeHeader+0xc0>
 				cks^='R';
- 1fa:	20 91 14 02 	lds	r18, 0x0214	; 0x800214 <cks>
- 1fe:	82 27       	eor	r24, r18
- 200:	80 93 14 02 	sts	0x0214, r24	; 0x800214 <cks>
- 204:	49 c0       	rjmp	.+146    	; 0x298 <DecodeHeader+0x15c>
+ 200:	90 91 12 02 	lds	r25, 0x0212	; 0x800212 <cks>
+ 204:	89 27       	eor	r24, r25
+ 206:	80 93 12 02 	sts	0x0212, r24	; 0x800212 <cks>
+ 20a:	64 c0       	rjmp	.+200    	; 0x2d4 <DecodeHeader+0x188>
 				
 			}
 			else {
 				indexRead--;
- 206:	80 91 04 01 	lds	r24, 0x0104	; 0x800104 <indexRead>
- 20a:	81 50       	subi	r24, 0x01	; 1
- 20c:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <indexRead>
+ 20c:	80 91 04 01 	lds	r24, 0x0104	; 0x800104 <indexRead>
+ 210:	81 50       	subi	r24, 0x01	; 1
+ 212:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <indexRead>
 				header=-1;
- 210:	8f ef       	ldi	r24, 0xFF	; 255
- 212:	80 93 11 02 	sts	0x0211, r24	; 0x800211 <header>
- 216:	40 c0       	rjmp	.+128    	; 0x298 <DecodeHeader+0x15c>
+ 216:	8f ef       	ldi	r24, 0xFF	; 255
+ 218:	80 93 0f 02 	sts	0x020F, r24	; 0x80020f <header>
+ 21c:	5b c0       	rjmp	.+182    	; 0x2d4 <DecodeHeader+0x188>
 			}
 			break;
 
 			case 4:                                         //byte menos significativo
 			   if(buffer[indexRead] > 0x00) {
- 218:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <indexRead>
- 21c:	f0 e0       	ldi	r31, 0x00	; 0
- 21e:	e7 5f       	subi	r30, 0xF7	; 247
- 220:	fe 4f       	sbci	r31, 0xFE	; 254
- 222:	80 81       	ld	r24, Z
- 224:	88 23       	and	r24, r24
- 226:	81 f0       	breq	.+32     	; 0x248 <DecodeHeader+0x10c>
+ 21e:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <indexRead>
+ 222:	f0 e0       	ldi	r31, 0x00	; 0
+ 224:	e7 5f       	subi	r30, 0xF7	; 247
+ 226:	fe 4f       	sbci	r31, 0xFE	; 254
+ 228:	80 81       	ld	r24, Z
+ 22a:	88 23       	and	r24, r24
+ 22c:	81 f0       	breq	.+32     	; 0x24e <DecodeHeader+0x102>
 	            
 				nBytes=buffer[indexRead];
- 228:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <indexRead>
- 22c:	f0 e0       	ldi	r31, 0x00	; 0
- 22e:	e7 5f       	subi	r30, 0xF7	; 247
- 230:	fe 4f       	sbci	r31, 0xFE	; 254
- 232:	80 81       	ld	r24, Z
- 234:	80 93 07 01 	sts	0x0107, r24	; 0x800107 <nBytes>
+ 22e:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <indexRead>
+ 232:	f0 e0       	ldi	r31, 0x00	; 0
+ 234:	e7 5f       	subi	r30, 0xF7	; 247
+ 236:	fe 4f       	sbci	r31, 0xFE	; 254
+ 238:	80 81       	ld	r24, Z
+ 23a:	80 93 07 01 	sts	0x0107, r24	; 0x800107 <nBytes>
 				  cks^=nBytes;
- 238:	80 91 07 01 	lds	r24, 0x0107	; 0x800107 <nBytes>
- 23c:	20 91 14 02 	lds	r18, 0x0214	; 0x800214 <cks>
- 240:	82 27       	eor	r24, r18
- 242:	80 93 14 02 	sts	0x0214, r24	; 0x800214 <cks>
- 246:	28 c0       	rjmp	.+80     	; 0x298 <DecodeHeader+0x15c>
+ 23e:	80 91 07 01 	lds	r24, 0x0107	; 0x800107 <nBytes>
+ 242:	90 91 12 02 	lds	r25, 0x0212	; 0x800212 <cks>
+ 246:	89 27       	eor	r24, r25
+ 248:	80 93 12 02 	sts	0x0212, r24	; 0x800212 <cks>
+ 24c:	43 c0       	rjmp	.+134    	; 0x2d4 <DecodeHeader+0x188>
 				
 				
 			    }
 			    else { 
 				  indexRead--;
- 248:	80 91 04 01 	lds	r24, 0x0104	; 0x800104 <indexRead>
- 24c:	81 50       	subi	r24, 0x01	; 1
- 24e:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <indexRead>
+ 24e:	80 91 04 01 	lds	r24, 0x0104	; 0x800104 <indexRead>
+ 252:	81 50       	subi	r24, 0x01	; 1
+ 254:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <indexRead>
 				  header=-1;
- 252:	8f ef       	ldi	r24, 0xFF	; 255
- 254:	80 93 11 02 	sts	0x0211, r24	; 0x800211 <header>
- 258:	1f c0       	rjmp	.+62     	; 0x298 <DecodeHeader+0x15c>
+ 258:	8f ef       	ldi	r24, 0xFF	; 255
+ 25a:	80 93 0f 02 	sts	0x020F, r24	; 0x80020f <header>
+ 25e:	3a c0       	rjmp	.+116    	; 0x2d4 <DecodeHeader+0x188>
 			    }
 			break;
 			
 
 			case 5:            // ':'
 			if(buffer[indexRead]==':') {
- 25a:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <indexRead>
- 25e:	f0 e0       	ldi	r31, 0x00	; 0
- 260:	e7 5f       	subi	r30, 0xF7	; 247
- 262:	fe 4f       	sbci	r31, 0xFE	; 254
- 264:	80 81       	ld	r24, Z
- 266:	8a 33       	cpi	r24, 0x3A	; 58
- 268:	79 f4       	brne	.+30     	; 0x288 <DecodeHeader+0x14c>
+ 260:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <indexRead>
+ 264:	f0 e0       	ldi	r31, 0x00	; 0
+ 266:	e7 5f       	subi	r30, 0xF7	; 247
+ 268:	fe 4f       	sbci	r31, 0xFE	; 254
+ 26a:	80 81       	ld	r24, Z
+ 26c:	8a 33       	cpi	r24, 0x3A	; 58
+ 26e:	61 f4       	brne	.+24     	; 0x288 <DecodeHeader+0x13c>
 				cks^=buffer[indexRead];
- 26a:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <indexRead>
- 26e:	f0 e0       	ldi	r31, 0x00	; 0
- 270:	e7 5f       	subi	r30, 0xF7	; 247
- 272:	fe 4f       	sbci	r31, 0xFE	; 254
- 274:	20 81       	ld	r18, Z
- 276:	80 91 14 02 	lds	r24, 0x0214	; 0x800214 <cks>
- 27a:	82 27       	eor	r24, r18
- 27c:	80 93 14 02 	sts	0x0214, r24	; 0x800214 <cks>
-
-				status=2;  //llego toda la cabecera
- 280:	82 e0       	ldi	r24, 0x02	; 2
- 282:	80 93 15 02 	sts	0x0215, r24	; 0x800215 <status>
- 286:	08 c0       	rjmp	.+16     	; 0x298 <DecodeHeader+0x15c>
+ 270:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <indexRead>
+ 274:	f0 e0       	ldi	r31, 0x00	; 0
+ 276:	e7 5f       	subi	r30, 0xF7	; 247
+ 278:	fe 4f       	sbci	r31, 0xFE	; 254
+ 27a:	90 81       	ld	r25, Z
+ 27c:	80 91 12 02 	lds	r24, 0x0212	; 0x800212 <cks>
+ 280:	89 27       	eor	r24, r25
+ 282:	80 93 12 02 	sts	0x0212, r24	; 0x800212 <cks>
+ 286:	26 c0       	rjmp	.+76     	; 0x2d4 <DecodeHeader+0x188>
+                // PORTB ^= (1<< PORTB0);
+				
 				 
 			}
 			else {
@@ -403,353 +401,401 @@ void DecodeHeader()
  28e:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <indexRead>
 				header=-1;
  292:	8f ef       	ldi	r24, 0xFF	; 255
- 294:	80 93 11 02 	sts	0x0211, r24	; 0x800211 <header>
+ 294:	80 93 0f 02 	sts	0x020F, r24	; 0x80020f <header>
+ 298:	1d c0       	rjmp	.+58     	; 0x2d4 <DecodeHeader+0x188>
 			}
 			break;
+			
+			case 6:            // ':'
+					cmdPos_inBuff=indexRead;
+ 29a:	80 91 04 01 	lds	r24, 0x0104	; 0x800104 <indexRead>
+ 29e:	80 93 02 01 	sts	0x0102, r24	; 0x800102 <__data_end>
+					cks^=buffer[indexRead];
+ 2a2:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <indexRead>
+ 2a6:	f0 e0       	ldi	r31, 0x00	; 0
+ 2a8:	e7 5f       	subi	r30, 0xF7	; 247
+ 2aa:	fe 4f       	sbci	r31, 0xFE	; 254
+ 2ac:	90 81       	ld	r25, Z
+ 2ae:	80 91 12 02 	lds	r24, 0x0212	; 0x800212 <cks>
+ 2b2:	89 27       	eor	r24, r25
+ 2b4:	80 93 12 02 	sts	0x0212, r24	; 0x800212 <cks>
+			 break;
+ 2b8:	0d c0       	rjmp	.+26     	; 0x2d4 <DecodeHeader+0x188>
+			 case 7:         
+			        if(cks==buffer[indexRead]){
+ 2ba:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <indexRead>
+ 2be:	f0 e0       	ldi	r31, 0x00	; 0
+ 2c0:	e7 5f       	subi	r30, 0xF7	; 247
+ 2c2:	fe 4f       	sbci	r31, 0xFE	; 254
+ 2c4:	90 81       	ld	r25, Z
+ 2c6:	80 91 12 02 	lds	r24, 0x0212	; 0x800212 <cks>
+ 2ca:	98 13       	cpse	r25, r24
+ 2cc:	03 c0       	rjmp	.+6      	; 0x2d4 <DecodeHeader+0x188>
+				        status=3;
+ 2ce:	83 e0       	ldi	r24, 0x03	; 3
+ 2d0:	80 93 13 02 	sts	0x0213, r24	; 0x800213 <status>
+			 }
+			 break;
 		}
 		header++;
- 298:	80 91 11 02 	lds	r24, 0x0211	; 0x800211 <header>
- 29c:	8f 5f       	subi	r24, 0xFF	; 255
- 29e:	80 93 11 02 	sts	0x0211, r24	; 0x800211 <header>
+ 2d4:	80 91 0f 02 	lds	r24, 0x020F	; 0x80020f <header>
+ 2d8:	8f 5f       	subi	r24, 0xFF	; 255
+ 2da:	80 93 0f 02 	sts	0x020F, r24	; 0x80020f <header>
 		indexRead++;
- 2a2:	80 91 04 01 	lds	r24, 0x0104	; 0x800104 <indexRead>
- 2a6:	8f 5f       	subi	r24, 0xFF	; 255
- 2a8:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <indexRead>
+ 2de:	80 91 04 01 	lds	r24, 0x0104	; 0x800104 <indexRead>
+ 2e2:	8f 5f       	subi	r24, 0xFF	; 255
+ 2e4:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <indexRead>
+}
+
+void DecodeHeader()
 {
-	uint8_t aux;
-	aux=indexWrite;
 		
-		
-	while((indexRead!=aux)&&(status==1)) {
- 2ac:	80 91 04 01 	lds	r24, 0x0104	; 0x800104 <indexRead>
- 2b0:	98 17       	cp	r25, r24
- 2b2:	29 f0       	breq	.+10     	; 0x2be <DecodeHeader+0x182>
- 2b4:	80 91 15 02 	lds	r24, 0x0215	; 0x800215 <status>
- 2b8:	81 30       	cpi	r24, 0x01	; 1
- 2ba:	09 f4       	brne	.+2      	; 0x2be <DecodeHeader+0x182>
- 2bc:	42 cf       	rjmp	.-380    	; 0x142 <DecodeHeader+0x6>
- 2be:	08 95       	ret
+	while((indexRead!=indexWrite)&&(status==1)) {
+ 2e8:	90 91 04 01 	lds	r25, 0x0104	; 0x800104 <indexRead>
+ 2ec:	80 91 0d 02 	lds	r24, 0x020D	; 0x80020d <indexWrite>
+ 2f0:	98 17       	cp	r25, r24
+ 2f2:	29 f0       	breq	.+10     	; 0x2fe <DecodeHeader+0x1b2>
+ 2f4:	80 91 13 02 	lds	r24, 0x0213	; 0x800213 <status>
+ 2f8:	81 30       	cpi	r24, 0x01	; 1
+ 2fa:	09 f4       	brne	.+2      	; 0x2fe <DecodeHeader+0x1b2>
+ 2fc:	28 cf       	rjmp	.-432    	; 0x14e <DecodeHeader+0x2>
+ 2fe:	08 95       	ret
 
-000002c0 <CksVerif>:
+00000300 <CksVerif>:
 	}
 }
 
 void CksVerif(){
 	static uint8_t p=1;
 	while((indexRead!=indexWrite)&&(p<nBytes)){       
- 2c0:	19 c0       	rjmp	.+50     	; 0x2f4 <CksVerif+0x34>
-		if(p==1)
- 2c2:	81 30       	cpi	r24, 0x01	; 1
- 2c4:	21 f4       	brne	.+8      	; 0x2ce <CksVerif+0xe>
+ 300:	19 c0       	rjmp	.+50     	; 0x334 <CksVerif+0x34>
+		if(p==1){
+ 302:	21 30       	cpi	r18, 0x01	; 1
+ 304:	b9 f4       	brne	.+46     	; 0x334 <CksVerif+0x34>
 		cmdPos_inBuff=indexRead;
- 2c6:	90 91 04 01 	lds	r25, 0x0104	; 0x800104 <indexRead>
- 2ca:	90 93 02 01 	sts	0x0102, r25	; 0x800102 <__data_end>
-	
-		cks^=buffer[indexRead];
- 2ce:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <indexRead>
- 2d2:	f0 e0       	ldi	r31, 0x00	; 0
- 2d4:	e7 5f       	subi	r30, 0xF7	; 247
- 2d6:	fe 4f       	sbci	r31, 0xFE	; 254
- 2d8:	20 81       	ld	r18, Z
- 2da:	90 91 14 02 	lds	r25, 0x0214	; 0x800214 <cks>
- 2de:	92 27       	eor	r25, r18
- 2e0:	90 93 14 02 	sts	0x0214, r25	; 0x800214 <cks>
+ 306:	80 91 04 01 	lds	r24, 0x0104	; 0x800104 <indexRead>
+ 30a:	80 93 02 01 	sts	0x0102, r24	; 0x800102 <__data_end>
+	    cks^=buffer[indexRead];
+ 30e:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <indexRead>
+ 312:	f0 e0       	ldi	r31, 0x00	; 0
+ 314:	e7 5f       	subi	r30, 0xF7	; 247
+ 316:	fe 4f       	sbci	r31, 0xFE	; 254
+ 318:	90 81       	ld	r25, Z
+ 31a:	80 91 12 02 	lds	r24, 0x0212	; 0x800212 <cks>
+ 31e:	89 27       	eor	r24, r25
+ 320:	80 93 12 02 	sts	0x0212, r24	; 0x800212 <cks>
 		indexRead++;
- 2e4:	90 91 04 01 	lds	r25, 0x0104	; 0x800104 <indexRead>
- 2e8:	9f 5f       	subi	r25, 0xFF	; 255
- 2ea:	90 93 04 01 	sts	0x0104, r25	; 0x800104 <indexRead>
+ 324:	80 91 04 01 	lds	r24, 0x0104	; 0x800104 <indexRead>
+ 328:	8f 5f       	subi	r24, 0xFF	; 255
+ 32a:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <indexRead>
 		p++;
- 2ee:	8f 5f       	subi	r24, 0xFF	; 255
- 2f0:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 32e:	2f 5f       	subi	r18, 0xFF	; 255
+ 330:	20 93 00 01 	sts	0x0100, r18	; 0x800100 <__DATA_REGION_ORIGIN__>
 	}
 }
 
 void CksVerif(){
 	static uint8_t p=1;
 	while((indexRead!=indexWrite)&&(p<nBytes)){       
- 2f4:	90 91 04 01 	lds	r25, 0x0104	; 0x800104 <indexRead>
- 2f8:	80 91 0f 02 	lds	r24, 0x020F	; 0x80020f <indexWrite>
- 2fc:	98 17       	cp	r25, r24
- 2fe:	61 f0       	breq	.+24     	; 0x318 <CksVerif+0x58>
- 300:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
- 304:	48 2f       	mov	r20, r24
- 306:	50 e0       	ldi	r21, 0x00	; 0
- 308:	20 91 07 01 	lds	r18, 0x0107	; 0x800107 <nBytes>
- 30c:	02 2e       	mov	r0, r18
- 30e:	00 0c       	add	r0, r0
- 310:	33 0b       	sbc	r19, r19
- 312:	42 17       	cp	r20, r18
- 314:	53 07       	cpc	r21, r19
- 316:	ac f2       	brlt	.-86     	; 0x2c2 <CksVerif+0x2>
-	
-		cks^=buffer[indexRead];
+ 334:	90 91 04 01 	lds	r25, 0x0104	; 0x800104 <indexRead>
+ 338:	80 91 0d 02 	lds	r24, 0x020D	; 0x80020d <indexWrite>
+ 33c:	98 17       	cp	r25, r24
+ 33e:	61 f0       	breq	.+24     	; 0x358 <CksVerif+0x58>
+ 340:	20 91 00 01 	lds	r18, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 344:	42 2f       	mov	r20, r18
+ 346:	50 e0       	ldi	r21, 0x00	; 0
+ 348:	80 91 07 01 	lds	r24, 0x0107	; 0x800107 <nBytes>
+ 34c:	08 2e       	mov	r0, r24
+ 34e:	00 0c       	add	r0, r0
+ 350:	99 0b       	sbc	r25, r25
+ 352:	48 17       	cp	r20, r24
+ 354:	59 07       	cpc	r21, r25
+ 356:	ac f2       	brlt	.-86     	; 0x302 <CksVerif+0x2>
+	    cks^=buffer[indexRead];
 		indexRead++;
 		p++;
+		}
 	}
-	if( (p==nBytes)&&(indexRead!=indexWrite) ){
- 318:	20 91 00 01 	lds	r18, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
- 31c:	30 e0       	ldi	r19, 0x00	; 0
- 31e:	80 91 07 01 	lds	r24, 0x0107	; 0x800107 <nBytes>
- 322:	08 2e       	mov	r0, r24
- 324:	00 0c       	add	r0, r0
- 326:	99 0b       	sbc	r25, r25
- 328:	28 17       	cp	r18, r24
- 32a:	39 07       	cpc	r19, r25
- 32c:	19 f5       	brne	.+70     	; 0x374 <CksVerif+0xb4>
- 32e:	90 91 04 01 	lds	r25, 0x0104	; 0x800104 <indexRead>
- 332:	80 91 0f 02 	lds	r24, 0x020F	; 0x80020f <indexWrite>
- 336:	98 17       	cp	r25, r24
- 338:	e9 f0       	breq	.+58     	; 0x374 <CksVerif+0xb4>
+	if( (p==nBytes)&&(indexRead==indexWrite) ){
+ 358:	20 91 00 01 	lds	r18, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 35c:	30 e0       	ldi	r19, 0x00	; 0
+ 35e:	80 91 07 01 	lds	r24, 0x0107	; 0x800107 <nBytes>
+ 362:	08 2e       	mov	r0, r24
+ 364:	00 0c       	add	r0, r0
+ 366:	99 0b       	sbc	r25, r25
+ 368:	28 17       	cp	r18, r24
+ 36a:	39 07       	cpc	r19, r25
+ 36c:	01 f5       	brne	.+64     	; 0x3ae <CksVerif+0xae>
+ 36e:	90 91 04 01 	lds	r25, 0x0104	; 0x800104 <indexRead>
+ 372:	80 91 0d 02 	lds	r24, 0x020D	; 0x80020d <indexWrite>
+ 376:	98 13       	cpse	r25, r24
+ 378:	1a c0       	rjmp	.+52     	; 0x3ae <CksVerif+0xae>
 		p=1;
- 33a:	81 e0       	ldi	r24, 0x01	; 1
- 33c:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 37a:	81 e0       	ldi	r24, 0x01	; 1
+ 37c:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__DATA_REGION_ORIGIN__>
 		if(cks==buffer[indexRead]){
- 340:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <indexRead>
- 344:	f0 e0       	ldi	r31, 0x00	; 0
- 346:	e7 5f       	subi	r30, 0xF7	; 247
- 348:	fe 4f       	sbci	r31, 0xFE	; 254
- 34a:	90 81       	ld	r25, Z
- 34c:	80 91 14 02 	lds	r24, 0x0214	; 0x800214 <cks>
- 350:	98 13       	cpse	r25, r24
- 352:	07 c0       	rjmp	.+14     	; 0x362 <CksVerif+0xa2>
-			PORTB |= ( 1 << PORTB0);
- 354:	85 b1       	in	r24, 0x05	; 5
- 356:	81 60       	ori	r24, 0x01	; 1
- 358:	85 b9       	out	0x05, r24	; 5
+ 380:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <indexRead>
+ 384:	f0 e0       	ldi	r31, 0x00	; 0
+ 386:	e7 5f       	subi	r30, 0xF7	; 247
+ 388:	fe 4f       	sbci	r31, 0xFE	; 254
+ 38a:	90 81       	ld	r25, Z
+ 38c:	80 91 12 02 	lds	r24, 0x0212	; 0x800212 <cks>
+ 390:	98 13       	cpse	r25, r24
+ 392:	04 c0       	rjmp	.+8      	; 0x39c <CksVerif+0x9c>
 			status=3;
- 35a:	83 e0       	ldi	r24, 0x03	; 3
- 35c:	80 93 15 02 	sts	0x0215, r24	; 0x800215 <status>
- 360:	07 c0       	rjmp	.+14     	; 0x370 <CksVerif+0xb0>
+ 394:	83 e0       	ldi	r24, 0x03	; 3
+ 396:	80 93 13 02 	sts	0x0213, r24	; 0x800213 <status>
+ 39a:	07 c0       	rjmp	.+14     	; 0x3aa <CksVerif+0xaa>
 		}
 		else{
 			status=1;
- 362:	81 e0       	ldi	r24, 0x01	; 1
- 364:	80 93 15 02 	sts	0x0215, r24	; 0x800215 <status>
+ 39c:	81 e0       	ldi	r24, 0x01	; 1
+ 39e:	80 93 13 02 	sts	0x0213, r24	; 0x800213 <status>
 			indexRead=indexWrite;
- 368:	80 91 0f 02 	lds	r24, 0x020F	; 0x80020f <indexWrite>
- 36c:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <indexRead>
+ 3a2:	80 91 0d 02 	lds	r24, 0x020D	; 0x80020d <indexWrite>
+ 3a6:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <indexRead>
 		}
 		header=0;
- 370:	10 92 11 02 	sts	0x0211, r1	; 0x800211 <header>
- 374:	08 95       	ret
+ 3aa:	10 92 0f 02 	sts	0x020F, r1	; 0x80020f <header>
+ 3ae:	08 95       	ret
 
-00000376 <CMD>:
+000003b0 <CMD>:
+		
 	}
 }
 
 void CMD()  {                                                                   // Lectura de codigos
+	header=0;
+ 3b0:	10 92 0f 02 	sts	0x020F, r1	; 0x80020f <header>
 	switch(buffer[cmdPos_inBuff]) {
- 376:	e0 91 02 01 	lds	r30, 0x0102	; 0x800102 <__data_end>
- 37a:	f0 e0       	ldi	r31, 0x00	; 0
- 37c:	e7 5f       	subi	r30, 0xF7	; 247
- 37e:	fe 4f       	sbci	r31, 0xFE	; 254
- 380:	80 81       	ld	r24, Z
- 382:	8b 32       	cpi	r24, 0x2B	; 43
- 384:	19 f0       	breq	.+6      	; 0x38c <CMD+0x16>
- 386:	8d 32       	cpi	r24, 0x2D	; 45
- 388:	71 f0       	breq	.+28     	; 0x3a6 <CMD+0x30>
- 38a:	08 95       	ret
+ 3b4:	e0 91 02 01 	lds	r30, 0x0102	; 0x800102 <__data_end>
+ 3b8:	f0 e0       	ldi	r31, 0x00	; 0
+ 3ba:	e7 5f       	subi	r30, 0xF7	; 247
+ 3bc:	fe 4f       	sbci	r31, 0xFE	; 254
+ 3be:	80 81       	ld	r24, Z
+ 3c0:	8b 32       	cpi	r24, 0x2B	; 43
+ 3c2:	19 f0       	breq	.+6      	; 0x3ca <CMD+0x1a>
+ 3c4:	8d 32       	cpi	r24, 0x2D	; 45
+ 3c6:	39 f0       	breq	.+14     	; 0x3d6 <CMD+0x26>
+ 3c8:	08 95       	ret
 	    case '+':
-			status=1;
- 38c:	81 e0       	ldi	r24, 0x01	; 1
- 38e:	80 93 15 02 	sts	0x0215, r24	; 0x800215 <status>
-            timeFinms = (timeInitms + 5);     
- 392:	80 91 05 01 	lds	r24, 0x0105	; 0x800105 <timeInitms>
- 396:	90 91 06 01 	lds	r25, 0x0106	; 0x800106 <timeInitms+0x1>
- 39a:	05 96       	adiw	r24, 0x05	; 5
- 39c:	90 93 13 02 	sts	0x0213, r25	; 0x800213 <timeFinms+0x1>
- 3a0:	80 93 12 02 	sts	0x0212, r24	; 0x800212 <timeFinms>
-	      
+		
+            INCREMENTAR=1;     
+ 3ca:	80 91 08 01 	lds	r24, 0x0108	; 0x800108 <flag1>
+ 3ce:	81 60       	ori	r24, 0x01	; 1
+ 3d0:	80 93 08 01 	sts	0x0108, r24	; 0x800108 <flag1>
+		   
 		break;
- 3a4:	08 95       	ret
+ 3d4:	08 95       	ret
 		
 		case '-':
-			status=1;
- 3a6:	81 e0       	ldi	r24, 0x01	; 1
- 3a8:	80 93 15 02 	sts	0x0215, r24	; 0x800215 <status>
-			timeFinms = (timeInitms - 5);
- 3ac:	80 91 05 01 	lds	r24, 0x0105	; 0x800105 <timeInitms>
- 3b0:	90 91 06 01 	lds	r25, 0x0106	; 0x800106 <timeInitms+0x1>
- 3b4:	05 97       	sbiw	r24, 0x05	; 5
- 3b6:	90 93 13 02 	sts	0x0213, r25	; 0x800213 <timeFinms+0x1>
- 3ba:	80 93 12 02 	sts	0x0212, r24	; 0x800212 <timeFinms>
- 3be:	08 95       	ret
+			timeInitms = timeInitms-5;
+ 3d6:	80 91 05 01 	lds	r24, 0x0105	; 0x800105 <timeInitms>
+ 3da:	90 91 06 01 	lds	r25, 0x0106	; 0x800106 <timeInitms+0x1>
+ 3de:	05 97       	sbiw	r24, 0x05	; 5
+ 3e0:	90 93 06 01 	sts	0x0106, r25	; 0x800106 <timeInitms+0x1>
+ 3e4:	80 93 05 01 	sts	0x0105, r24	; 0x800105 <timeInitms>
+			timeFinms=timeInitms;
+ 3e8:	80 91 05 01 	lds	r24, 0x0105	; 0x800105 <timeInitms>
+ 3ec:	90 91 06 01 	lds	r25, 0x0106	; 0x800106 <timeInitms+0x1>
+ 3f0:	90 93 11 02 	sts	0x0211, r25	; 0x800211 <timeFinms+0x1>
+ 3f4:	80 93 10 02 	sts	0x0210, r24	; 0x800210 <timeFinms>
+ 3f8:	08 95       	ret
 
-000003c0 <main>:
+000003fa <main>:
 }
 
 
 int main (void) {
 	                                     // 1 segundo apagado y 1 segundo prendido 
 	InitUSART(MYUBRR);   
- 3c0:	87 e6       	ldi	r24, 0x67	; 103
- 3c2:	0e 94 53 00 	call	0xa6	; 0xa6 <InitUSART>
+ 3fa:	87 e6       	ldi	r24, 0x67	; 103
+ 3fc:	0e 94 5b 00 	call	0xb6	; 0xb6 <InitUSART>
 	initPort ();
- 3c6:	0e 94 83 00 	call	0x106	; 0x106 <initPort>
+ 400:	0e 94 8b 00 	call	0x116	; 0x116 <initPort>
     initTimers10ms ();	
- 3ca:	0e 94 8d 00 	call	0x11a	; 0x11a <initTimers10ms>
-	sei();
- 3ce:	78 94       	sei
-     timeInitms= 5;                    // tiempo inicio en 50 ms  (5*10)= 50 ms 
- 3d0:	85 e0       	ldi	r24, 0x05	; 5
- 3d2:	90 e0       	ldi	r25, 0x00	; 0
- 3d4:	90 93 06 01 	sts	0x0106, r25	; 0x800106 <timeInitms+0x1>
- 3d8:	80 93 05 01 	sts	0x0105, r24	; 0x800105 <timeInitms>
+ 404:	0e 94 95 00 	call	0x12a	; 0x12a <initTimers10ms>
+	 sei();
+ 408:	78 94       	sei
+     timeInitms= 0;                    // tiempo inicio en 50 ms  (5*10)= 50 ms 
+ 40a:	10 92 06 01 	sts	0x0106, r1	; 0x800106 <timeInitms+0x1>
+ 40e:	10 92 05 01 	sts	0x0105, r1	; 0x800105 <timeInitms>
 	 indexWrite=0;
- 3dc:	10 92 0f 02 	sts	0x020F, r1	; 0x80020f <indexWrite>
+ 412:	10 92 0d 02 	sts	0x020D, r1	; 0x80020d <indexWrite>
 	 indexRead=0;
- 3e0:	10 92 04 01 	sts	0x0104, r1	; 0x800104 <indexRead>
+ 416:	10 92 04 01 	sts	0x0104, r1	; 0x800104 <indexRead>
 	 header=0;
- 3e4:	10 92 11 02 	sts	0x0211, r1	; 0x800211 <header>
+ 41a:	10 92 0f 02 	sts	0x020F, r1	; 0x80020f <header>
 	 status=1;
- 3e8:	81 e0       	ldi	r24, 0x01	; 1
- 3ea:	80 93 15 02 	sts	0x0215, r24	; 0x800215 <status>
-	 timeOutRX=10;
- 3ee:	8a e0       	ldi	r24, 0x0A	; 10
- 3f0:	80 93 08 01 	sts	0x0108, r24	; 0x800108 <timeOutRX>
+ 41e:	81 e0       	ldi	r24, 0x01	; 1
+ 420:	80 93 13 02 	sts	0x0213, r24	; 0x800213 <status>
+	 timeFinms=50;
+ 424:	82 e3       	ldi	r24, 0x32	; 50
+ 426:	90 e0       	ldi	r25, 0x00	; 0
+ 428:	90 93 11 02 	sts	0x0211, r25	; 0x800211 <timeFinms+0x1>
+ 42c:	80 93 10 02 	sts	0x0210, r24	; 0x800210 <timeFinms>
 	 sendData=0;
- 3f4:	10 92 10 02 	sts	0x0210, r1	; 0x800210 <sendData>
-	 timeFinms= 25;
- 3f8:	89 e1       	ldi	r24, 0x19	; 25
- 3fa:	90 e0       	ldi	r25, 0x00	; 0
- 3fc:	90 93 13 02 	sts	0x0213, r25	; 0x800213 <timeFinms+0x1>
- 400:	80 93 12 02 	sts	0x0212, r24	; 0x800212 <timeFinms>
+ 430:	10 92 0e 02 	sts	0x020E, r1	; 0x80020e <sendData>
 	
 	while(1){
 		
       if(indexRead!=indexWrite){
- 404:	90 91 04 01 	lds	r25, 0x0104	; 0x800104 <indexRead>
- 408:	80 91 0f 02 	lds	r24, 0x020F	; 0x80020f <indexWrite>
- 40c:	98 17       	cp	r25, r24
- 40e:	d1 f3       	breq	.-12     	; 0x404 <__EEPROM_REGION_LENGTH__+0x4>
+ 434:	90 91 04 01 	lds	r25, 0x0104	; 0x800104 <indexRead>
+ 438:	80 91 0d 02 	lds	r24, 0x020D	; 0x80020d <indexWrite>
+ 43c:	98 17       	cp	r25, r24
+ 43e:	99 f0       	breq	.+38     	; 0x466 <__EEPROM_REGION_LENGTH__+0x66>
 	      switch(status) {
- 410:	80 91 15 02 	lds	r24, 0x0215	; 0x800215 <status>
- 414:	82 30       	cpi	r24, 0x02	; 2
- 416:	39 f0       	breq	.+14     	; 0x426 <__EEPROM_REGION_LENGTH__+0x26>
- 418:	83 30       	cpi	r24, 0x03	; 3
- 41a:	41 f0       	breq	.+16     	; 0x42c <__EEPROM_REGION_LENGTH__+0x2c>
- 41c:	81 30       	cpi	r24, 0x01	; 1
- 41e:	91 f7       	brne	.-28     	; 0x404 <__EEPROM_REGION_LENGTH__+0x4>
+ 440:	80 91 13 02 	lds	r24, 0x0213	; 0x800213 <status>
+ 444:	82 30       	cpi	r24, 0x02	; 2
+ 446:	39 f0       	breq	.+14     	; 0x456 <__EEPROM_REGION_LENGTH__+0x56>
+ 448:	83 30       	cpi	r24, 0x03	; 3
+ 44a:	41 f0       	breq	.+16     	; 0x45c <__EEPROM_REGION_LENGTH__+0x5c>
+ 44c:	81 30       	cpi	r24, 0x01	; 1
+ 44e:	59 f4       	brne	.+22     	; 0x466 <__EEPROM_REGION_LENGTH__+0x66>
 		    case 1:
 		         DecodeHeader();
- 420:	0e 94 9e 00 	call	0x13c	; 0x13c <DecodeHeader>
+ 450:	0e 94 a6 00 	call	0x14c	; 0x14c <DecodeHeader>
 		         
 			  break;
- 424:	ef cf       	rjmp	.-34     	; 0x404 <__EEPROM_REGION_LENGTH__+0x4>
+ 454:	08 c0       	rjmp	.+16     	; 0x466 <__EEPROM_REGION_LENGTH__+0x66>
 		    
 			case 2:
 			
 		        CksVerif();
- 426:	0e 94 60 01 	call	0x2c0	; 0x2c0 <CksVerif>
+ 456:	0e 94 80 01 	call	0x300	; 0x300 <CksVerif>
 		      break;
- 42a:	ec cf       	rjmp	.-40     	; 0x404 <__EEPROM_REGION_LENGTH__+0x4>
+ 45a:	05 c0       	rjmp	.+10     	; 0x466 <__EEPROM_REGION_LENGTH__+0x66>
 		    
 			case 3:
 			     
-		         indexRead++;
- 42c:	80 91 04 01 	lds	r24, 0x0104	; 0x800104 <indexRead>
- 430:	8f 5f       	subi	r24, 0xFF	; 255
- 432:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <indexRead>
 		         CMD();
- 436:	0e 94 bb 01 	call	0x376	; 0x376 <CMD>
-		         status=1;
- 43a:	81 e0       	ldi	r24, 0x01	; 1
- 43c:	80 93 15 02 	sts	0x0215, r24	; 0x800215 <status>
+ 45c:	0e 94 d8 01 	call	0x3b0	; 0x3b0 <CMD>
+		          status=1;
+ 460:	81 e0       	ldi	r24, 0x01	; 1
+ 462:	80 93 13 02 	sts	0x0213, r24	; 0x800213 <status>
 		     break;
- 440:	e1 cf       	rjmp	.-62     	; 0x404 <__EEPROM_REGION_LENGTH__+0x4>
-
-00000442 <__vector_18>:
+	                       }
 
 	                            }
+		if (INCREMENTAR==1)
+ 466:	80 91 08 01 	lds	r24, 0x0108	; 0x800108 <flag1>
+ 46a:	80 ff       	sbrs	r24, 0
+ 46c:	12 c0       	rjmp	.+36     	; 0x492 <__EEPROM_REGION_LENGTH__+0x92>
+		{
+			timeInitms +=10;
+ 46e:	80 91 05 01 	lds	r24, 0x0105	; 0x800105 <timeInitms>
+ 472:	90 91 06 01 	lds	r25, 0x0106	; 0x800106 <timeInitms+0x1>
+ 476:	0a 96       	adiw	r24, 0x0a	; 10
+ 478:	90 93 06 01 	sts	0x0106, r25	; 0x800106 <timeInitms+0x1>
+ 47c:	80 93 05 01 	sts	0x0105, r24	; 0x800105 <timeInitms>
+			PORTB ^= (1<< PORTB0);
+ 480:	95 b1       	in	r25, 0x05	; 5
+ 482:	81 e0       	ldi	r24, 0x01	; 1
+ 484:	89 27       	eor	r24, r25
+ 486:	85 b9       	out	0x05, r24	; 5
+			INCREMENTAR = 0;
+ 488:	80 91 08 01 	lds	r24, 0x0108	; 0x800108 <flag1>
+ 48c:	8e 7f       	andi	r24, 0xFE	; 254
+ 48e:	80 93 08 01 	sts	0x0108, r24	; 0x800108 <flag1>
+			}
+		
+								
+		if (!timeFinms){
+ 492:	80 91 10 02 	lds	r24, 0x0210	; 0x800210 <timeFinms>
+ 496:	90 91 11 02 	lds	r25, 0x0211	; 0x800211 <timeFinms+0x1>
+ 49a:	89 2b       	or	r24, r25
+ 49c:	59 f6       	brne	.-106    	; 0x434 <__EEPROM_REGION_LENGTH__+0x34>
+			timeFinms = timeInitms;
+ 49e:	80 91 05 01 	lds	r24, 0x0105	; 0x800105 <timeInitms>
+ 4a2:	90 91 06 01 	lds	r25, 0x0106	; 0x800106 <timeInitms+0x1>
+ 4a6:	90 93 11 02 	sts	0x0211, r25	; 0x800211 <timeFinms+0x1>
+ 4aa:	80 93 10 02 	sts	0x0210, r24	; 0x800210 <timeFinms>
+			PORTB ^= (1<< PORTB5);
+ 4ae:	95 b1       	in	r25, 0x05	; 5
+ 4b0:	80 e2       	ldi	r24, 0x20	; 32
+ 4b2:	89 27       	eor	r24, r25
+ 4b4:	85 b9       	out	0x05, r24	; 5
+ 4b6:	be cf       	rjmp	.-132    	; 0x434 <__EEPROM_REGION_LENGTH__+0x34>
+
+000004b8 <__vector_18>:
+			//
+		//}
              }
 }
 
 ISR(USART_RX_vect){
- 442:	1f 92       	push	r1
- 444:	0f 92       	push	r0
- 446:	0f b6       	in	r0, 0x3f	; 63
- 448:	0f 92       	push	r0
- 44a:	11 24       	eor	r1, r1
- 44c:	8f 93       	push	r24
- 44e:	ef 93       	push	r30
- 450:	ff 93       	push	r31
+ 4b8:	1f 92       	push	r1
+ 4ba:	0f 92       	push	r0
+ 4bc:	0f b6       	in	r0, 0x3f	; 63
+ 4be:	0f 92       	push	r0
+ 4c0:	11 24       	eor	r1, r1
+ 4c2:	8f 93       	push	r24
+ 4c4:	ef 93       	push	r30
+ 4c6:	ff 93       	push	r31
 	   buffer[indexWrite] = UDR0;
- 452:	e0 91 0f 02 	lds	r30, 0x020F	; 0x80020f <indexWrite>
- 456:	f0 e0       	ldi	r31, 0x00	; 0
- 458:	80 91 c6 00 	lds	r24, 0x00C6	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7f80c6>
- 45c:	e7 5f       	subi	r30, 0xF7	; 247
- 45e:	fe 4f       	sbci	r31, 0xFE	; 254
- 460:	80 83       	st	Z, r24
+ 4c8:	e0 91 0d 02 	lds	r30, 0x020D	; 0x80020d <indexWrite>
+ 4cc:	f0 e0       	ldi	r31, 0x00	; 0
+ 4ce:	80 91 c6 00 	lds	r24, 0x00C6	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7f80c6>
+ 4d2:	e7 5f       	subi	r30, 0xF7	; 247
+ 4d4:	fe 4f       	sbci	r31, 0xFE	; 254
+ 4d6:	80 83       	st	Z, r24
         indexWrite++;
- 462:	80 91 0f 02 	lds	r24, 0x020F	; 0x80020f <indexWrite>
- 466:	8f 5f       	subi	r24, 0xFF	; 255
- 468:	80 93 0f 02 	sts	0x020F, r24	; 0x80020f <indexWrite>
+ 4d8:	80 91 0d 02 	lds	r24, 0x020D	; 0x80020d <indexWrite>
+ 4dc:	8f 5f       	subi	r24, 0xFF	; 255
+ 4de:	80 93 0d 02 	sts	0x020D, r24	; 0x80020d <indexWrite>
 		}
- 46c:	ff 91       	pop	r31
- 46e:	ef 91       	pop	r30
- 470:	8f 91       	pop	r24
- 472:	0f 90       	pop	r0
- 474:	0f be       	out	0x3f, r0	; 63
- 476:	0f 90       	pop	r0
- 478:	1f 90       	pop	r1
- 47a:	18 95       	reti
+ 4e2:	ff 91       	pop	r31
+ 4e4:	ef 91       	pop	r30
+ 4e6:	8f 91       	pop	r24
+ 4e8:	0f 90       	pop	r0
+ 4ea:	0f be       	out	0x3f, r0	; 63
+ 4ec:	0f 90       	pop	r0
+ 4ee:	1f 90       	pop	r1
+ 4f0:	18 95       	reti
 
-0000047c <__vector_11>:
+000004f2 <__vector_11>:
 	
 
 ISR (TIMER1_COMPA_vect) {
- 47c:	1f 92       	push	r1
- 47e:	0f 92       	push	r0
- 480:	0f b6       	in	r0, 0x3f	; 63
- 482:	0f 92       	push	r0
- 484:	11 24       	eor	r1, r1
- 486:	8f 93       	push	r24
- 488:	9f 93       	push	r25
-	   timeFinms--;
- 48a:	80 91 12 02 	lds	r24, 0x0212	; 0x800212 <timeFinms>
- 48e:	90 91 13 02 	lds	r25, 0x0213	; 0x800213 <timeFinms+0x1>
- 492:	01 97       	sbiw	r24, 0x01	; 1
- 494:	90 93 13 02 	sts	0x0213, r25	; 0x800213 <timeFinms+0x1>
- 498:	80 93 12 02 	sts	0x0212, r24	; 0x800212 <timeFinms>
-	if (timeFinms == 0) {
- 49c:	80 91 12 02 	lds	r24, 0x0212	; 0x800212 <timeFinms>
- 4a0:	90 91 13 02 	lds	r25, 0x0213	; 0x800213 <timeFinms+0x1>
- 4a4:	89 2b       	or	r24, r25
- 4a6:	79 f4       	brne	.+30     	; 0x4c6 <__vector_11+0x4a>
-		timeFinms=25;
- 4a8:	89 e1       	ldi	r24, 0x19	; 25
- 4aa:	90 e0       	ldi	r25, 0x00	; 0
- 4ac:	90 93 13 02 	sts	0x0213, r25	; 0x800213 <timeFinms+0x1>
- 4b0:	80 93 12 02 	sts	0x0212, r24	; 0x800212 <timeFinms>
-		if (PORTB & ( 1 << PORTB5)){ // desplazo al numero 1 cinco veces para que aparezca en la posicion 5
- 4b4:	2d 9b       	sbis	0x05, 5	; 5
- 4b6:	04 c0       	rjmp	.+8      	; 0x4c0 <__vector_11+0x44>
-		    PORTB &= ~ ( 1 << PORTB5); // ~ (1 << PORTB5) = 11011111 hago cero el bit 5 de PORTB5
- 4b8:	85 b1       	in	r24, 0x05	; 5
- 4ba:	8f 7d       	andi	r24, 0xDF	; 223
- 4bc:	85 b9       	out	0x05, r24	; 5
- 4be:	03 c0       	rjmp	.+6      	; 0x4c6 <__vector_11+0x4a>
-	      }
-		else {
-		   PORTB |= ( 1 << PORTB5);
- 4c0:	85 b1       	in	r24, 0x05	; 5
- 4c2:	80 62       	ori	r24, 0x20	; 32
- 4c4:	85 b9       	out	0x05, r24	; 5
-		  }
+ 4f2:	1f 92       	push	r1
+ 4f4:	0f 92       	push	r0
+ 4f6:	0f b6       	in	r0, 0x3f	; 63
+ 4f8:	0f 92       	push	r0
+ 4fa:	11 24       	eor	r1, r1
+ 4fc:	8f 93       	push	r24
+ 4fe:	9f 93       	push	r25
 
-		  
-	}
-	
- 4c6:	9f 91       	pop	r25
- 4c8:	8f 91       	pop	r24
- 4ca:	0f 90       	pop	r0
- 4cc:	0f be       	out	0x3f, r0	; 63
- 4ce:	0f 90       	pop	r0
- 4d0:	1f 90       	pop	r1
- 4d2:	18 95       	reti
+	  if (timeFinms > 0)
+ 500:	80 91 10 02 	lds	r24, 0x0210	; 0x800210 <timeFinms>
+ 504:	90 91 11 02 	lds	r25, 0x0211	; 0x800211 <timeFinms+0x1>
+ 508:	89 2b       	or	r24, r25
+ 50a:	49 f0       	breq	.+18     	; 0x51e <__vector_11+0x2c>
+	  {
+		timeFinms--;	
+ 50c:	80 91 10 02 	lds	r24, 0x0210	; 0x800210 <timeFinms>
+ 510:	90 91 11 02 	lds	r25, 0x0211	; 0x800211 <timeFinms+0x1>
+ 514:	01 97       	sbiw	r24, 0x01	; 1
+ 516:	90 93 11 02 	sts	0x0211, r25	; 0x800211 <timeFinms+0x1>
+ 51a:	80 93 10 02 	sts	0x0210, r24	; 0x800210 <timeFinms>
+	  }
+ 51e:	9f 91       	pop	r25
+ 520:	8f 91       	pop	r24
+ 522:	0f 90       	pop	r0
+ 524:	0f be       	out	0x3f, r0	; 63
+ 526:	0f 90       	pop	r0
+ 528:	1f 90       	pop	r1
+ 52a:	18 95       	reti
 
-000004d4 <_exit>:
- 4d4:	f8 94       	cli
+0000052c <__tablejump2__>:
+ 52c:	ee 0f       	add	r30, r30
+ 52e:	ff 1f       	adc	r31, r31
+ 530:	05 90       	lpm	r0, Z+
+ 532:	f4 91       	lpm	r31, Z
+ 534:	e0 2d       	mov	r30, r0
+ 536:	09 94       	ijmp
 
-000004d6 <__stop_program>:
- 4d6:	ff cf       	rjmp	.-2      	; 0x4d6 <__stop_program>
+00000538 <_exit>:
+ 538:	f8 94       	cli
+
+0000053a <__stop_program>:
+ 53a:	ff cf       	rjmp	.-2      	; 0x53a <__stop_program>
