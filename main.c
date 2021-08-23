@@ -62,6 +62,7 @@ typedef union{
 
 // Defines
 #define INCREMENTAR flag1.bit.b0 //
+#define DECREMENTAR flag1.bit.b1 //
 volatile _sFlag flag1;
 
 //.........................................................................
@@ -105,9 +106,10 @@ void USART_Transmit( unsigned char data )
 
 void initPort () {
    DDRB |= (1<< DDB5);                              // Configuro como salida el puerto DDB5   
-   PORTB &=~ (1 << PORTB5);                          // El puerto esta en 1
+   PORTB &= ~(1 << PORTB5);                          // El puerto esta en 0
     
    DDRB |= (1<< DDB0); 
+    
 }
 
 void  initTimers10ms () {
@@ -125,131 +127,162 @@ void DecodeHeader()
 		switch(header) {
 			case 0://U
 			
-			
-			if(buffer[indexRead]=='U') {
+			    if(buffer[indexRead]=='U') {
 				cks='U';
-				
-			}
+				header++;
+				indexRead++;                         
+									 
+										   }
 			else {
-				indexRead=indexWrite;
-				header=-1;
+				indexRead--;
+				header--;
 			}
 			break;
 			case 1://UN
 			if(buffer[indexRead]=='N') {
 				cks^='N';
+				header++;
+				indexRead++;
 			}
 			else {
 				indexRead--;
-				header=-1;
+				header--;
 			}
 			break;
 			case 2://UNE
 			if(buffer[indexRead]=='E') {
 				cks^='E';
+				header++;
+				indexRead++;
 			}
 			else {
 				indexRead--;
-				header=-1;
+				header--;
 			}
 			break;
 			case 3://UNER
-			if(buffer[indexRead]=='R') {
+			    if(buffer[indexRead]=='R') {
 				cks^='R';
+				header++;
+				indexRead++;
 				
-			}
-			else {
-				indexRead--;
-				header=-1;
-			}
-			break;
-
-			case 4:                                         //byte menos significativo
-			   if(buffer[indexRead] > 0x00) {
-	            
-				nBytes=buffer[indexRead];
-				  cks^=nBytes;
-				
-				
-			    }
-			    else { 
-				  indexRead--;
-				  header=-1;
-			    }
-			break;
-			
-
-			case 5:            // ':'
-			if(buffer[indexRead]==':') {
-				cks^=buffer[indexRead];
-                // PORTB ^= (1<< PORTB0);
-				
+			                               }
+			    else {
+				 indexRead--;
+				 header--;
+			          }
+			    break;
+			 case 4: 
+					if(buffer[indexRead] > 0x00) {
+					    nBytes = buffer[indexRead];
+						cks^= nBytes;
+						header++;
+						indexRead++;
+						
+					}
+					else {
+						indexRead--;
+						header--;
+					}
+					break;
+			 case 5:
+			 if(buffer[indexRead]==0x00) {
+				cks^= 0x00;
+				 header++;
+				 indexRead++;
 				 
-			}
-			else {
-				indexRead--;
-				header=-1;
-			}
-			break;
-			
-			case 6:            // ':'
-					cmdPos_inBuff=indexRead;
-					cks^=buffer[indexRead];
-			 break;
-			 case 7:         
-			        if(cks==buffer[indexRead]){
-				        status=3;
+			 }
+			 else {
+				 indexRead--;
+				 header--;
 			 }
 			 break;
+			  case 6:
+			  if(buffer[indexRead]==':') {
+				  cks^= ':';
+				  header++;
+				  indexRead++;
+				  
+			  }
+			  else {
+				  indexRead--;
+				  header--;
+			  }
+			  break;
+			   case 7:
+			   if(buffer[indexRead] != 0x00) {
+				   cks^= buffer[indexRead] ;
+				   cmdPos_inBuff=indexRead;
+				   header++;
+				   indexRead++;
+				   
+			   }
+			   else {
+				   indexRead--;
+				   header--;
+			   }
+			   break;		
+			case 8:                                //cks
+				if(cks == buffer[indexRead]) {
+					
+					 status=2;					 
+				     indexRead=indexWrite;
+					 header=0;
+				
+				}
+				else {
+					indexRead--;
+					header--;
+				     }
+				break;
 		}
-		header++;
-		indexRead++;
 	}
 }
 
-void CksVerif(){
-	static uint8_t p=1;
-	while((indexRead!=indexWrite)&&(p<nBytes)){       
-		if(p==1){
-		cmdPos_inBuff=indexRead;
-	    cks^=buffer[indexRead];
-		indexRead++;
-		p++;
-		}
-	}
-	if( (p==nBytes)&&(indexRead==indexWrite) ){
-		p=1;
-		if(cks==buffer[indexRead]){
-			status=3;
-		}
-		else{
-			status=1;
-			indexRead=indexWrite;
-		}
-		header=0;
-		
-	}
-}
+//void CksVerif(){
+	//static uint8_t p=1;
+	//while((indexRead!=indexWrite)&&(p<nBytes)){       
+		//if(p==1){
+		//cmdPos_inBuff=indexRead;
+	    //cks^=buffer[indexRead];
+		//indexRead++;
+		//p++;
+		//}
+	//}
+	//if( (p==nBytes)&&(indexRead==indexWrite) ){
+		//p=1;
+		//if(cks==buffer[indexRead]){
+			//status=3;
+		//}
+		//else{
+			//status=1;
+			//indexRead=indexWrite;
+		//}
+		//header=0;
+		//
+	//}
+//}
 
 void CMD()  {                                                                   // Lectura de codigos
-	header=0;
+	
 	switch(buffer[cmdPos_inBuff]) {
 	    case '+':
-		
+		    
             INCREMENTAR=1;     
-		   
+		
 		break;
 		
 		case '-':
-			timeInitms = timeInitms-5;
-			timeFinms=timeInitms;
+			DECREMENTAR=1;
+		     
 		break;
 	}
 }
 
 
 int main (void) {
-	                                     // 1 segundo apagado y 1 segundo prendido 
+	 DECREMENTAR=0;
+	 INCREMENTAR=0;                                    // 1 segundo apagado y 1 segundo prendido 
 	InitUSART(MYUBRR);   
 	initPort ();
     initTimers10ms ();	
@@ -259,51 +292,57 @@ int main (void) {
 	 indexRead=0;
 	 header=0;
 	 status=1;
-	 timeFinms=50;
+	 timeFinms=0;
 	 sendData=0;
 	
 	while(1){
 		
-      if(indexRead!=indexWrite){
+      if((indexRead!=indexWrite) && INCREMENTAR==0 && DECREMENTAR ==0){
 	      switch(status) {
 		    case 1:
 		         DecodeHeader();
 		         
 			  break;
-		    
+		       
 			case 2:
-			
-		        CksVerif();
-		      break;
-		    
-			case 3:
-			     
+			   
 		         CMD();
-		          status=1;
+		  
 		     break;
 	                       }
 
 	                            }
 		if (INCREMENTAR==1)
 		{
-			timeInitms +=10;
-			PORTB ^= (1<< PORTB0);
+			 timeInitms +=10;
+	         status=1;	
 			INCREMENTAR = 0;
-			}
 		
-								
-		if (!timeFinms){
-			timeFinms = timeInitms;
-			PORTB ^= (1<< PORTB5);
 			}
-			////(1 << PORTB5 1) desplazado por B5 es igual a 00100000
-			//if(PORTB & (1 << PORTB5)) {//desplazo al numero 1 cinco veces para que aparezca en la posicion 5
-			//PORTB &= ~(1 << PORTB5);} //~ (1 << PORTB5) = 11011111 hago cero el bit 5 de PORTB5
-			//else{
-			//PORTB |= (1 << PORTB5);}
-			//
-		//}
-             }
+		if (DECREMENTAR==1)
+		{
+		     timeInitms -=10;
+					if (PORTB & (1<<PORTB0)){
+						PORTB &= ~(1<<PORTB0);
+					}
+					else {
+						PORTB |= (1<< PORTB0);
+						
+					}
+					status=1;
+					DECREMENTAR = 0;
+					
+				}
+			if (!timeFinms){
+				timeFinms = timeInitms;
+				//(1 << PORTB5 1) desplazado por B5 es igual a 00100000
+				if(PORTB & (1 << PORTB5)) //desplazo al numero 1 cinco veces para que aparezca en la posicion 5
+				PORTB &= ~(1 << PORTB5); //~ (1 << PORTB5) = 11011111 hago cero el bit 5 de PORTB5
+				else
+				PORTB |= (1 << PORTB5);
+			}				
+		
+}
 }
 
 ISR(USART_RX_vect){
@@ -313,9 +352,8 @@ ISR(USART_RX_vect){
 	
 
 ISR (TIMER1_COMPA_vect) {
-
-	  if (timeFinms > 0)
-	  {
-		timeFinms--;	
-	  }
+        
+	  if (timeFinms){
+		  timeFinms--;
+	                 }
 }
