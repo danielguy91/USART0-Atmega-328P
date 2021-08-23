@@ -287,7 +287,7 @@ int main (void) {
 	initPort ();
     initTimers10ms ();	
 	 sei();
-     timeInitms= 0;                    // tiempo inicio en 50 ms  (5*10)= 50 ms 
+     timeInitms= 10;                    // tiempo inicio en 50 ms  (5*10)= 50 ms 
 	 indexWrite=0;
 	 indexRead=0;
 	 header=0;
@@ -312,23 +312,29 @@ int main (void) {
 	                       }
 
 	                            }
-		if (INCREMENTAR==1)
+		if (INCREMENTAR==1 && DECREMENTAR ==0 )
 		{
-			 timeInitms +=10;
+			 if (timeInitms<=300){
+			   
+			    timeInitms +=10;
+			 }
+			 else{
+				timeInitms=300; 
+			 }
 	         status=1;	
 			INCREMENTAR = 0;
 		
 			}
-		if (DECREMENTAR==1)
+		if (DECREMENTAR==1 && INCREMENTAR==0)
 		{
-		     timeInitms -=10;
-					if (PORTB & (1<<PORTB0)){
-						PORTB &= ~(1<<PORTB0);
-					}
-					else {
-						PORTB |= (1<< PORTB0);
-						
-					}
+		           if(timeInitms > 10){
+				   timeInitms -=10;
+				   }
+				   else{
+					timeInitms=10;   
+				   }
+					
+					
 					status=1;
 					DECREMENTAR = 0;
 					
